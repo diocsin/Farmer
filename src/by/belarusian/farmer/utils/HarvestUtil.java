@@ -1,6 +1,13 @@
 package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.model.Harvest;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
@@ -10,6 +17,12 @@ import java.util.Iterator;
 import java.util.List;
 
 public class HarvestUtil {
+
+
+    public static <T extends Harvest> List<T> weightGreaterThen(Collection<? extends Harvest> collection, int weight){
+        List<?> list = collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
+        return (List<T>) list;
+    }
 
     public List<Harvest> filterByType(List<Harvest> list, Type type) {
         List<Harvest> filteredList = new ArrayList<>();
@@ -28,7 +41,7 @@ public class HarvestUtil {
                 resultHarvest.add(harvest);
             }
         }
-        Collections.sort(resultHarvest,new HarvestComporator());
+        resultHarvest.sort(new HarvestComporator());
         return resultHarvest;
 
     }
@@ -48,6 +61,7 @@ public class HarvestUtil {
                     if(iter.next().getWeight()<weight) {
                         iter.remove();
                     }
+                    Collections.sort(list, new HarvestComporator());
                 }
                 return list;
             }
