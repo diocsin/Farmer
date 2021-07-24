@@ -1,15 +1,10 @@
 package by.belarusian.farmer.model.berries;
 
 import by.belarusian.farmer.enums.Color;
-import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 
-import java.util.Objects;
-
-public class Cherry extends Berry {
-
-
-    public Cherry(Long weight, Color color) {
+public class Grape extends Berry {
+    public Grape(Long weight, Color color) {
         super(weight, color);
     }
 }
