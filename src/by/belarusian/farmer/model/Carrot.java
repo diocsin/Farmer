@@ -1,7 +1,15 @@
 package by.belarusian.farmer.model;
 
+import by.belarusian.farmer.enums.Type;
+
 public class Carrot {
     private int weight;
+    private final Type type = Type.VEGETABLES;
+
+
+    public Type getType() {
+        return type;
+    }
 
     public int getWeight() {
         return weight;
