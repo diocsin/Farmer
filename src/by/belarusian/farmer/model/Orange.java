@@ -2,13 +2,13 @@ package by.belarusian.farmer.model;
 
 public class Orange {
 
-    private Integer weight;
+    private int weight;
 
-    public Integer getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 }
