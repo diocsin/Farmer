@@ -1,8 +1,21 @@
 package by.belarusian.farmer;
 
+import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.model.fruits.Apple;
+import by.belarusian.farmer.model.vegetables.Cucumber;
+import by.belarusian.farmer.utils.PrintUtil;
+
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Harvest harvest1 = new Apple(123l, Color.RED);
+        Harvest harvest2 = new Cucumber(18l, Color.GREEN);
+        ArrayList<Harvest> list = new ArrayList<Harvest>();
+        list.add(harvest1);
+        list.add(harvest2);
+        PrintUtil.print(list);
     }
 }
