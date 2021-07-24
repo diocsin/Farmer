@@ -9,6 +9,7 @@ public class Carrot extends Vegetable {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Морковь";
     }

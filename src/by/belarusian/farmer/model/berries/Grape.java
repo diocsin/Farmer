@@ -8,6 +8,7 @@ public class Grape extends Berry {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Виноград";
     }

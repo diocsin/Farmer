@@ -11,6 +11,7 @@ public class Cucumber extends Vegetable {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Огурец";
     }

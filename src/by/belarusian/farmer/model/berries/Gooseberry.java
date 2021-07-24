@@ -12,7 +12,8 @@ public class Gooseberry extends Berry {
         super(weight, color);
     }
 
-    public String getRusName() {
-        return "Крыжовник";
+        @Override
+        public String getRusName() {
+            return "Крыжовник";
+        }
     }
-}
