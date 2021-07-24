@@ -1,18 +1,13 @@
 package by.belarusian.farmer.model.vegetables;
 
-import java.util.Objects;
+import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.model.Vegetable;
 
-public class Cucumber {
 
-    private int weight;
+public class Cucumber extends Vegetable {
 
-    public int getWeight() {
-        return weight;
+
+    public Cucumber(Long weight, Color color) {
+        super(weight, color);
     }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-
 }
