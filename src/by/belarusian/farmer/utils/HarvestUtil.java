@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
-import java.util.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -34,15 +33,15 @@ public class HarvestUtil {
         }
         return filteredList;
     }
-    public List<Harvest> moreFilter(List<Harvest> harvests, int weight) {
+    public List<Harvest> minThen(List<Harvest> harvests, int weight) {
 
         List<Harvest> resultHarvest = new ArrayList<>();
         for (Harvest harvest : harvests) {
-            if (harvest.getWeight() > weight) {
+            if (harvest.getWeight() < weight) {
                 resultHarvest.add(harvest);
             }
         }
-        Collections.sort(resultHarvest,new HarvestComporator());
+        resultHarvest.sort(new HarvestComporator());
         return resultHarvest;
 
     }
