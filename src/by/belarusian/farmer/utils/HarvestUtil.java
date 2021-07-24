@@ -60,7 +60,7 @@ public class HarvestUtil {
     List<Harvest> biggerThen(List<Harvest> list, int weight) {
         Iterator<Harvest> iter = list.iterator();
         while (iter.hasNext()) {
-            if (iter.next().getWeight() > weight) {
+            if (iter.next().getWeight() < weight) {
                 iter.remove();
             }
             Collections.sort(list, new HarvestComporator());
