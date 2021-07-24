@@ -18,10 +18,11 @@ import java.util.List;
 
 public class HarvestUtil {
 
-
-    public static <T extends Harvest> List<T> weightGreaterThen(Collection<? extends Harvest> collection, int weight) {
-        List<?> list = collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
-        return (List<T>) list;
+    public static <T extends Harvest> List<T> weightGreaterThen(Collection<T> collection, int weight) {
+        if(collection.isEmpty() || collection == null){
+            return new ArrayList<>();
+        }
+        return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());;
     }
 
     public List<Harvest> filterByType(List<Harvest> list, Type type) {
