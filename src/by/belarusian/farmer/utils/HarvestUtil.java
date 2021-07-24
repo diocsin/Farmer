@@ -5,6 +5,7 @@ import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class HarvestUtil {
@@ -37,5 +38,13 @@ public class HarvestUtil {
         }
         return list;
     }
+            List<Harvest> filterOverWeight(List<Harvest> list, int weight){
 
+                Iterator <Harvest> iter = list.iterator();
+                while (iter.hasNext()){
+                    iter.next().getWeight();
+                        iter.remove();
+                }
+                return list;
+            }
 }
