@@ -9,7 +9,11 @@ import java.util.Objects;
 public class Guava extends Fruit {
 
 
-    public Guava(Long weight, Color color) {
+    public Guava(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Гуава";
     }
 }

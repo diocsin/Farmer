@@ -7,7 +7,11 @@ import by.belarusian.farmer.model.Vegetable;
 public class Pepper extends Vegetable {
 
 
-    public Pepper(Long weight, Color color) {
+    public Pepper(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Перец";
     }
 }

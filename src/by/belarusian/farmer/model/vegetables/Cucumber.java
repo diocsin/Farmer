@@ -7,7 +7,11 @@ import by.belarusian.farmer.model.Vegetable;
 public class Cucumber extends Vegetable {
 
 
-    public Cucumber(Long weight, Color color) {
+    public Cucumber(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Огурец";
     }
 }
