@@ -8,8 +8,12 @@ import java.util.Objects;
 
 public class Apricot extends Fruit {
 
-    public Apricot(Long weight, Color color) {
+    public Apricot(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Абрикос";
     }
 }
 

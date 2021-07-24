@@ -4,7 +4,11 @@ import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.model.Berry;
 
 public class Grape extends Berry {
-    public Grape(Long weight, Color color) {
+    public Grape(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Виноград";
     }
 }
