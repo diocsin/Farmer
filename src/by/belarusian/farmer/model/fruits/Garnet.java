@@ -8,7 +8,11 @@ import java.util.Objects;
 
 public class Garnet extends Fruit {
 
-    public Garnet(Long weight, Color color) {
+    public Garnet(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Гранат";
     }
 }

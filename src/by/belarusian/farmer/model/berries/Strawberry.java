@@ -8,8 +8,11 @@ import java.util.Objects;
 
 public class Strawberry extends Berry {
 
-
-    public Strawberry(Long weight, Color color) {
+    public Strawberry(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Клубника";
     }
 }

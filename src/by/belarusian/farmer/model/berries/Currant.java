@@ -9,8 +9,12 @@ import java.util.Objects;
 public class Currant extends Berry {
 
 
-    public Currant(Long weight, Color color) {
+    public Currant(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Смородина";
     }
 }
 

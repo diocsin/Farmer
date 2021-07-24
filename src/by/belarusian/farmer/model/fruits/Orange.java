@@ -9,7 +9,11 @@ import java.util.Objects;
 public class Orange extends Fruit {
 
 
-    public Orange(Long weight, Color color) {
+    public Orange(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Апельсин";
     }
 }
