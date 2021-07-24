@@ -16,12 +16,12 @@ import java.util.List;
 
 public class HarvestUtil {
 
-<<<<<<< HEAD
+
     public static <T extends Harvest> List<T> weightGreaterThen(Collection<? extends Harvest> collection, int weight){
         List<?> list = collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
         return (List<T>) list;
     }
-=======
+
     public List<Harvest> filterByType(List<Harvest> list, Type type) {
         List<Harvest> filteredList = new ArrayList<>();
         for (Harvest value : list) {
@@ -40,6 +40,15 @@ public class HarvestUtil {
             }
         }
         return resultHarvest;
+    }
+    public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
+        List<Harvest> list = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (harvest.getColor() == color) {
+                list.add(harvest);
+            }
+        }
+        return list;
     }
             List<Harvest> filterOverWeight(List<Harvest> list, int weight){
 
