@@ -13,6 +13,7 @@ public class Cranberry extends Berry {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Клюква";
     }

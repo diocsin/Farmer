@@ -12,6 +12,7 @@ public class Garnet extends Fruit {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Гранат";
     }
