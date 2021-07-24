@@ -31,10 +31,11 @@ public class HarvestUtil {
                 filteredList.add(value);
             }
         }
+        filteredList.sort(new HarvestComporator());
         return filteredList;
     }
 
-    public List<Harvest> minThen(List<Harvest> harvests, int weight) {
+    public List<Harvest> smallerThen(List<Harvest> harvests, int weight) {
 
         List<Harvest> resultHarvest = new ArrayList<>();
         for (Harvest harvest : harvests) {
@@ -47,24 +48,26 @@ public class HarvestUtil {
 
     }
 
-    public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
+    public List<Harvest> filterByColor(List<Harvest> harvests, Color color) {
         List<Harvest> list = new ArrayList<>();
         for (Harvest harvest : harvests) {
             if (harvest.getColor() == color) {
                 list.add(harvest);
             }
         }
+        list.sort(new HarvestComporator());
         return list;
     }
 
     List<Harvest> biggerThen(List<Harvest> list, int weight) {
         Iterator<Harvest> iter = list.iterator();
         while (iter.hasNext()) {
-            if (iter.next().getWeight() > weight) {
+            if (iter.next().getWeight() < weight) {
                 iter.remove();
             }
             Collections.sort(list, new HarvestComporator());
         }
+        list.sort(new HarvestComporator());
         return list;
     }
 }
