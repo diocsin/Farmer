@@ -7,20 +7,20 @@ public abstract class Harvest {
 
     private Type type;
 
-    private Long weight;
+    private int weight;
 
     private Color color;
 
-    public Harvest(Long weight, Color color) {
+    public Harvest(int weight, Color color) {
         this.weight = weight;
         this.color = color;
     }
 
-    public Long getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -34,5 +34,9 @@ public abstract class Harvest {
 
     public Type getType() {
         return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 }
