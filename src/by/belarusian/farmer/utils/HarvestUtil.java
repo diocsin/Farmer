@@ -1,5 +1,6 @@
 package by.belarusian.farmer.utils;
 
+import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
@@ -26,6 +27,15 @@ public class HarvestUtil {
             }
         }
         return resultHarvest;
+    }
+    public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
+        List<Harvest> list = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (harvest.getColor() == color) {
+                list.add(harvest);
+            }
+        }
+        return list;
     }
 
 }
