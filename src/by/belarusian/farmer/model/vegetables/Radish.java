@@ -1,6 +1,9 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
-public class Tomato {
+import java.util.Objects;
+
+public class Radish {
+
     private int weight;
 
     public int getWeight() {
@@ -10,4 +13,6 @@ public class Tomato {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+
 }
