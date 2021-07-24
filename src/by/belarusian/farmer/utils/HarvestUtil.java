@@ -1,5 +1,6 @@
 package by.belarusian.farmer.utils;
 
+import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.model.Harvest;
 
 import java.util.ArrayList;
