@@ -1,25 +1,25 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.berries;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
 import java.util.Objects;
 
-public class Grape {
-    private double weight;
+public class Gooseberry {
+    private int weight;
     private Color color;
     private final Type type = Type.BERRIES;
 
-    public Grape(double weight, Color color) {
+    public Gooseberry(int weight, Color color) {
         this.weight = weight;
         this.color = color;
     }
 
-    public double getWeight() {
+    public int getWeight() {
         return weight;
     }
 
-    public void setWeight(double weight) {
+    public void setWeight(int weight) {
         this.weight = weight;
     }
 
@@ -39,10 +39,10 @@ public class Grape {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Grape grape = (Grape) o;
-        return Double.compare(grape.weight, weight) == 0 &&
-                color == grape.color &&
-                type == grape.type;
+        Gooseberry that = (Gooseberry) o;
+        return weight == that.weight &&
+                color == that.color &&
+                type == that.type;
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Grape {
 
     @Override
     public String toString() {
-        return "Grape{" +
+        return "Gooseberry{" +
                 "weight=" + weight +
                 ", color=" + color +
                 ", type=" + type +

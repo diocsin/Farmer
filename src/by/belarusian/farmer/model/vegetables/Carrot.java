@@ -1,14 +1,14 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
-public class Beet {
+public class Carrot {
     private int weight;
     private final Type type = Type.VEGETABLES;
     private Color color;
 
-    public Beet(int weight, Color color) {
+    public Carrot(int weight, Color color) {
         this.weight = weight;
         this.color = color;
     }

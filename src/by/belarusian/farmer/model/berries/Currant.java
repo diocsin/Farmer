@@ -7,14 +7,13 @@ import java.util.Objects;
 
 public class Currant {
 
-    public final Type TYPE;
+    public final Type TYPE = Type.BERRIES;
 
     private int weigh;
 
     private Color color;
 
-    public Currant(Type TYPE, int weigh, Color color) {
-        this.TYPE = TYPE;
+    public Currant(int weigh, Color color) {
         this.weigh = weigh;
         this.color = color;
     }

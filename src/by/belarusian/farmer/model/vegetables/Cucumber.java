@@ -1,6 +1,8 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
-public class Orange {
+import java.util.Objects;
+
+public class Cucumber {
 
     private int weight;
 
@@ -11,4 +13,6 @@ public class Orange {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+
 }

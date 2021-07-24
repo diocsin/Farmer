@@ -1,4 +1,4 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
 import java.util.Objects;
 

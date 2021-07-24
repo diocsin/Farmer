@@ -1,8 +1,9 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
-public class Lemon {
+import java.util.Objects;
 
-    private int weight;
+public class Pepper {
+
 
     public int getWeight() {
         return weight;
@@ -11,4 +12,6 @@ public class Lemon {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    private int weight;
 }
