@@ -8,7 +8,11 @@ import java.util.Objects;
 
 public class Gooseberry extends Berry {
 
-    public Gooseberry(Long weight, Color color) {
+    public Gooseberry(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Крыжовник";
     }
 }

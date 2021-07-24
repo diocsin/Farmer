@@ -8,8 +8,11 @@ import java.util.Objects;
 
 public class Cherry extends Berry {
 
-
-    public Cherry(Long weight, Color color) {
+    public Cherry(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Вишня";
     }
 }
