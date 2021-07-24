@@ -4,9 +4,7 @@ import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class HarvestUtil {
 
@@ -45,6 +43,7 @@ public class HarvestUtil {
                     if(iter.next().getWeight()<weight) {
                         iter.remove();
                     }
+                    Collections.sort(list,new HarvestComporator());
                 }
                 return list;
             }
