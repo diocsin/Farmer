@@ -39,4 +39,9 @@ public abstract class Harvest {
     public void setType(Type type) {
         this.type = type;
     }
+
+    public String getRusName(){
+        return "Плод";
+    }
+
 }

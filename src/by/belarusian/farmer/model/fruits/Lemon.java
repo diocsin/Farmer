@@ -13,6 +13,7 @@ public class Lemon extends Fruit {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Лимон";
     }

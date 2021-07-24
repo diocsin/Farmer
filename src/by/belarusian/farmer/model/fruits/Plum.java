@@ -12,6 +12,7 @@ public class Plum extends Fruit {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Слива";
     }
