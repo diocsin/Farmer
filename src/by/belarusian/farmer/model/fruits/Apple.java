@@ -1,21 +1,21 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.fruits;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
 import java.util.Objects;
 
-public class Guava {
+public class Apple {
 
     private int weight;
 
-    private Color guavaColor;
+    private Color appleColor;
 
     private final Type TYPE = Type.FRUITS;
 
-    public Guava(int weight, Color guavaColor) {
+    public Apple(int weight, Color appleColor) {
         this.weight = weight;
-        this.guavaColor = guavaColor;
+        this.appleColor = appleColor;
     }
 
     public int getWeight() {
@@ -26,12 +26,12 @@ public class Guava {
         this.weight = weight;
     }
 
-    public Color getGuavaColor() {
-        return guavaColor;
+    public Color getAppleColor() {
+        return appleColor;
     }
 
-    public void setGuavaColor(Color guavaColor) {
-        this.guavaColor = guavaColor;
+    public void setAppleColor(Color appleColor) {
+        this.appleColor = appleColor;
     }
 
     public Type getTYPE() {
@@ -40,9 +40,9 @@ public class Guava {
 
     @Override
     public String toString() {
-        return "Guava{" +
+        return "Apple{" +
                 "weight=" + weight +
-                ", guavaColor=" + guavaColor +
+                ", appleColor=" + appleColor +
                 ", TYPE=" + TYPE +
                 '}';
     }
@@ -51,17 +51,17 @@ public class Guava {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Guava guava = (Guava) o;
-        return weight == guava.weight && guavaColor == guava.guavaColor && TYPE == guava.TYPE;
+        Apple apple = (Apple) o;
+        return weight == apple.weight && appleColor == apple.appleColor && TYPE == apple.TYPE;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(weight, guavaColor, TYPE);
+        return Objects.hash(weight, appleColor, TYPE);
     }
 
     public String getEnumFruitColor() {
-        return guavaColor.getRusName();
+        return appleColor.getRusName();
     }
 
 }

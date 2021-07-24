@@ -1,21 +1,21 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.fruits;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
 import java.util.Objects;
 
-public class Lemon {
+public class Orange {
 
     private int weight;
 
-    private Color lemonColor;
+    private Color orangeColor;
 
     private final Type TYPE = Type.FRUITS;
 
-    public Lemon(int weight, Color lemonColor) {
+    public Orange(int weight, Color orangeColor) {
         this.weight = weight;
-        this.lemonColor = lemonColor;
+        this.orangeColor = orangeColor;
     }
 
     public int getWeight() {
@@ -26,12 +26,12 @@ public class Lemon {
         this.weight = weight;
     }
 
-    public Color getLemonColor() {
-        return lemonColor;
+    public Color getOrangeColor() {
+        return orangeColor;
     }
 
-    public void setLemonColor(Color lemonColor) {
-        this.lemonColor = lemonColor;
+    public void setOrangeColor(Color orangeColor) {
+        this.orangeColor = orangeColor;
     }
 
     public Type getTYPE() {
@@ -40,9 +40,9 @@ public class Lemon {
 
     @Override
     public String toString() {
-        return "Lemon{" +
+        return "Orange{" +
                 "weight=" + weight +
-                ", lemonColor=" + lemonColor +
+                ", orangeColor=" + orangeColor +
                 ", TYPE=" + TYPE +
                 '}';
     }
@@ -51,17 +51,17 @@ public class Lemon {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Lemon lemon = (Lemon) o;
-        return weight == lemon.weight && lemonColor == lemon.lemonColor && TYPE == lemon.TYPE;
+        Orange orange = (Orange) o;
+        return weight == orange.weight && orangeColor == orange.orangeColor && TYPE == orange.TYPE;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(weight, lemonColor, TYPE);
+        return Objects.hash(weight, orangeColor, TYPE);
     }
 
     public String getEnumFruitColor() {
-        return lemonColor.getRusName();
+        return orangeColor.getRusName();
     }
 
 }
