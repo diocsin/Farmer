@@ -1,6 +1,6 @@
 package by.belarusian.farmer.model;
 
-public class Apple {
+public class Orange {
 
     private Integer weight;
 
