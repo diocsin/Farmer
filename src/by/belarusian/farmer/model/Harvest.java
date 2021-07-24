@@ -44,4 +44,12 @@ public abstract class Harvest {
         return "Плод";
     }
 
+    @Override
+    public String toString() {
+        return "Harvest{" +
+                "type=" + type +
+                ", weight=" + weight +
+                ", color=" + color +
+                '}';
+    }
 }

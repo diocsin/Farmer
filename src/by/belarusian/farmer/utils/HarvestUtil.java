@@ -1,29 +1,28 @@
 package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
-import by.belarusian.farmer.model.Harvest;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.Collectors;
-
 import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class HarvestUtil {
 
-    public static <T extends Harvest> List<T> weightGreaterThen(Collection<T> collection, int weight) {
-        if(collection.isEmpty() || collection == null){
+    public static <T extends Harvest> List<T> weightGreaterThen(List<T> collection, int weight) {
+        if (collection.isEmpty() || collection == null) {
             return new ArrayList<>();
         }
-        return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());;
+        return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
     }
+
+    public static <T extends Harvest> List<T> takeOnlyType(Collection<T> collection, Class clazz){
+        return collection.stream().filter(obj -> obj.equals(clazz)).collect(Collectors.toList());
+    }
+
+
+
 
     public List<Harvest> filterByType(List<Harvest> list, Type type) {
         List<Harvest> filteredList = new ArrayList<>();
