@@ -5,6 +5,9 @@ import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.Vegetable;
+import by.belarusian.farmer.model.berries.*;
+import by.belarusian.farmer.model.fruits.*;
+import by.belarusian.farmer.model.vegetables.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,27 +25,100 @@ public class HarvestFactory {
 
         for (int i = 0; i < number; i++) {
             switch (rand.nextInt(2)) {
-                case 0:
 
+                case 0:
+                    harvestList.add(getBerry());
+                    break;
+
+                case 1:
+                    harvestList.add(getFruit());
+                    break;
+
+                case 2:
+                    harvestList.add(getVegetable());
+                    break;
             }
         }
-
-
         return harvestList;
     }
 
-    private Berry getBerry(){
+    private Berry getBerry() {
 
-        return null;
+        switch (rand.nextInt(6)) {
+
+            case 0:
+                return new Blueberry(rand.nextInt(10), colors[rand.nextInt(10)]);
+
+            case 1:
+                return new Cherry(rand.nextInt(20), colors[rand.nextInt(10)]);
+
+            case 2:
+                return new Cranberry(rand.nextInt(10), colors[rand.nextInt(10)]);
+
+            case 3:
+                return new Currant(rand.nextInt(10), colors[rand.nextInt(10)]);
+
+            case 4:
+                return new Gooseberry(rand.nextInt(20), colors[rand.nextInt(10)]);
+
+            case 5:
+                return new Grape(rand.nextInt(30), colors[rand.nextInt(10)]);
+        }
+        return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);
     }
 
-    private Fruit getFruit(){
+    private Fruit getFruit() {
 
-        return null;
+        switch (rand.nextInt(7)){
+
+            case 0:
+                return new Apple(rand.nextInt(500), colors[rand.nextInt(10)]);
+
+            case 1:
+                return new Apricot(rand.nextInt(400), colors[rand.nextInt(10)]);
+
+            case 2:
+                return new Banana(rand.nextInt(300), colors[rand.nextInt(10)]);
+
+            case 3:
+                return new Garnet(rand.nextInt(150), colors[rand.nextInt(10)]);
+
+            case 4:
+                return new Guava(rand.nextInt(400), colors[rand.nextInt(10)]);
+
+            case 5:
+                return new Lemon(rand.nextInt(100), colors[rand.nextInt(10)]);
+
+            case 6:
+                return new Orange(rand.nextInt(300), colors[rand.nextInt(10)]);
+
+        }
+        return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);
     }
 
-    private Vegetable getVegetable(){
+    private Vegetable getVegetable() {
 
-        return null;
+        switch (rand.nextInt(6)){
+
+            case 0:
+                return new Beet(rand.nextInt(200), colors[rand.nextInt(10)]);
+
+            case 1:
+                return new Carrot(rand.nextInt(200), colors[rand.nextInt(10)]);
+
+            case 2:
+                return new Cucumber(rand.nextInt(500), colors[rand.nextInt(10)]);
+
+            case 3:
+                return new Pepper(rand.nextInt(100), colors[rand.nextInt(10)]);
+
+            case 4:
+                return new Potato(rand.nextInt(300), colors[rand.nextInt(10)]);
+
+            case 5:
+                return new Radish(rand.nextInt(50), colors[rand.nextInt(10)]);
+
+        }
+        return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]);
     }
 }
