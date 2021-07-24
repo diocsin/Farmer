@@ -5,14 +5,9 @@ import by.belarusian.farmer.enums.Type;
 
 public abstract class Berry extends Harvest {
 
-    private final Type type;
-
-    public Berry(Long weight, Color color) {
+    public Berry(int weight, Color color) {
         super(weight, color);
-        this.type = Type.BERRIES;
+        super.setType(Type.BERRIES);
     }
 
-    public Type getType() {
-        return type;
-    }
 }

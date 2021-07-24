@@ -1,6 +1,50 @@
 package by.belarusian.farmer.utils;
 
+import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.model.Harvest;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class HarvestUtil {
 
+    public List<Harvest> filterByType(List<Harvest> list, Type type) {
+        List<Harvest> filteredList = new ArrayList<>();
+        for (Harvest value : list) {
+            if (value.getType() == type) {
+                filteredList.add(value);
+            }
+        }
+        return filteredList;
+    }
+    public List<Harvest> moreFilter(List<Harvest> harvests, int weight) {
 
+        List<Harvest> resultHarvest = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (harvest.getWeight() > weight) {
+                resultHarvest.add(harvest);
+            }
+        }
+        return resultHarvest;
+    }
+    public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
+        List<Harvest> list = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (harvest.getColor() == color) {
+                list.add(harvest);
+            }
+        }
+        return list;
+    }
+            List<Harvest> filterOverWeight(List<Harvest> list, int weight){
+
+                Iterator <Harvest> iter = list.iterator();
+                while (iter.hasNext()){
+                    iter.next().getWeight();
+                        iter.remove();
+                }
+                return list;
+            }
 }

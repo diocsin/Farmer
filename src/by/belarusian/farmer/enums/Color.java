@@ -7,6 +7,7 @@ public enum Color {
     WHITE(4, "Белый"),
     BLACK(5, "Чёрный"),
     YELLOW(6, "Жёлтый"),
+
     ORANGE(7, "Оранжевый"),
     PURPLE(8, "Фиолетовый"),
     GREY(9, "Серый"),
