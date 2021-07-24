@@ -1,6 +1,7 @@
 package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
@@ -17,7 +18,31 @@ public class HarvestFactory {
 
     private Random rand = new Random();
     private Color[] colors = Color.values();
+    private Type[] types = Type.values();
 
+    public List<Harvest> getHarvestType(int amount, Type type) {
+        List<Harvest> harvestList = new ArrayList<>();
+
+        if (type == Type.VEGETABLES) {
+            for (int i = 0; i < amount; i++) {
+                harvestList.add(getVegetable());
+            }
+        }
+
+        if (type == Type.FRUITS) {
+            for (int i = 0; i < amount; i++) {
+                harvestList.add(getFruit());
+            }
+        }
+
+        if (type == Type.BERRIES) {
+            for (int i = 0; i < amount; i++) {
+                harvestList.add(getBerry());
+            }
+        }
+
+        return harvestList;
+    }
 
     public List<Harvest> getHarvest(int number) {
         List<Harvest> harvestList = new ArrayList<>();
@@ -39,6 +64,8 @@ public class HarvestFactory {
                     break;
             }
         }
+
+
         return harvestList;
     }
 
