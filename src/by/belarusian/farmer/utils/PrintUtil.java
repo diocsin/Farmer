@@ -12,7 +12,7 @@ public class PrintUtil {
     public static void print(List<Harvest> list) {
         for (Harvest i : list) {
             String string = i.getType().getRusName();
-            string = string + " - " + "название" + " " + i.getWeight() + " грамм, цвет - " + i.getColor();
+            string = string + " - " + i.getRusName() + " " + i.getWeight() + " грамм, цвет - " + i.getColor().getRusName();
             System.out.println(string);
             try (FileWriter writer = new FileWriter("src/by/belarusian/farmer/log/log.txt", true)) {
                 writer.write(string);
