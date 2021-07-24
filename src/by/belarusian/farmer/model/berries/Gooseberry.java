@@ -1,4 +1,4 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.berries;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
