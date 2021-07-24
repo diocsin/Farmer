@@ -5,6 +5,8 @@ import by.belarusian.farmer.enums.Type;
 
 public abstract class Harvest {
 
+    private Type type;
+
     private Long weight;
 
     private Color color;
@@ -28,5 +30,9 @@ public abstract class Harvest {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public Type getType() {
+        return type;
     }
 }
