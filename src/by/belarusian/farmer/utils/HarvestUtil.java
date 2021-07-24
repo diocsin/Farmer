@@ -5,6 +5,10 @@ import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 
 import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
 public class HarvestUtil {
 
@@ -25,7 +29,9 @@ public class HarvestUtil {
                 resultHarvest.add(harvest);
             }
         }
+        Collections.sort(resultHarvest,new HarvestComporator());
         return resultHarvest;
+
     }
     public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
         List<Harvest> list = new ArrayList<>();

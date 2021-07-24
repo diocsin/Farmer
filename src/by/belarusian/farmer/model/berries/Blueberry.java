@@ -7,8 +7,11 @@ import by.belarusian.farmer.model.Berry;
 import java.util.Objects;
 
 public class Blueberry extends Berry {
-    public Blueberry(Long weight, Color color) {
+    public Blueberry(int weight, Color color) {
         super(weight, color);
     }
 
+    public String getRusName() {
+        return "Черника";
+    }
 }
