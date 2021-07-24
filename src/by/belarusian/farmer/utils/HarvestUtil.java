@@ -28,7 +28,7 @@ public class HarvestUtil {
         }
         return resultHarvest;
     }
-            List<Harvest> filterOverWeight(List<Harvest> list, Long weight){
+            List<Harvest> filterOverWeight(List<Harvest> list, int weight){
 
                 Iterator <Harvest> iter = list.iterator();
                 while (iter.hasNext()){
