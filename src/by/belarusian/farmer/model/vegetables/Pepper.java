@@ -1,7 +1,9 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
-public class Carrot {
-    private int weight;
+import java.util.Objects;
+
+public class Pepper {
+
 
     public int getWeight() {
         return weight;
@@ -10,4 +12,6 @@ public class Carrot {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    private int weight;
 }

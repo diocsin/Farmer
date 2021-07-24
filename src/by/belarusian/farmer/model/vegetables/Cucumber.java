@@ -1,6 +1,9 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.vegetables;
 
-public class Potato {
+import java.util.Objects;
+
+public class Cucumber {
+
     private int weight;
 
     public int getWeight() {
@@ -10,4 +13,6 @@ public class Potato {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+
 }
