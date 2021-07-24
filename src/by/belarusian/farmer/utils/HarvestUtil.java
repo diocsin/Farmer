@@ -32,8 +32,9 @@ public class HarvestUtil {
 
                 Iterator <Harvest> iter = list.iterator();
                 while (iter.hasNext()){
-                    iter.next().getWeight();
+                    if(iter.next().getWeight()<weight) {
                         iter.remove();
+                    }
                 }
                 return list;
             }
