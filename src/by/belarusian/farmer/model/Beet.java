@@ -1,5 +1,8 @@
 package by.belarusian.farmer.model;
 
+import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.enums.Type;
+
 public class Beet {
     private int weight;
 
