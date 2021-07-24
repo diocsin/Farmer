@@ -5,16 +5,8 @@ import by.belarusian.farmer.enums.Type;
 
 public abstract class Vegetable extends Harvest {
 
-    private final Type type;
-
-    public Vegetable(Long weight, Color color) {
+    public Vegetable(int weight, Color color) {
         super(weight, color);
-        this.type = Type.VEGETABLES;
+        super.setType(Type.VEGETABLES);
     }
-
-    public Type getType() {
-        return type;
-    }
-
-
 }
