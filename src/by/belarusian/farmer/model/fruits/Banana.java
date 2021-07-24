@@ -1,18 +1,18 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.fruits;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
 import java.util.Objects;
 
-public class Garnet {
+public class Banana {
     private int weight;
 
     private Color color;
 
     private final Type TYPE = Type.FRUITS;
 
-    public Garnet(int weight, Color color) {
+    public Banana(int weight, Color color) {
         this.weight = weight;
         this.color = color;
     }
@@ -38,20 +38,11 @@ public class Garnet {
     }
 
     @Override
-    public String toString() {
-        return "Garnet{" +
-                "weight=" + weight +
-                ", color=" + color +
-                ", TYPE=" + TYPE +
-                '}';
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Garnet garnet = (Garnet) o;
-        return weight == garnet.weight && color == garnet.color && TYPE == garnet.TYPE;
+        Banana banana = (Banana) o;
+        return weight == banana.weight && color == banana.color && TYPE == banana.TYPE;
     }
 
     @Override

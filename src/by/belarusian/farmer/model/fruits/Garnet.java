@@ -1,18 +1,18 @@
-package by.belarusian.farmer.model;
+package by.belarusian.farmer.model.fruits;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
 import java.util.Objects;
 
-public class Apricot {
+public class Garnet {
     private int weight;
 
     private Color color;
 
     private final Type TYPE = Type.FRUITS;
 
-    public Apricot(int weight, Color color) {
+    public Garnet(int weight, Color color) {
         this.weight = weight;
         this.color = color;
     }
@@ -39,7 +39,7 @@ public class Apricot {
 
     @Override
     public String toString() {
-        return "Apricot{" +
+        return "Garnet{" +
                 "weight=" + weight +
                 ", color=" + color +
                 ", TYPE=" + TYPE +
@@ -50,8 +50,8 @@ public class Apricot {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Apricot apricot = (Apricot) o;
-        return weight == apricot.weight && color == apricot.color && TYPE == apricot.TYPE;
+        Garnet garnet = (Garnet) o;
+        return weight == garnet.weight && color == garnet.color && TYPE == garnet.TYPE;
     }
 
     @Override
@@ -59,5 +59,3 @@ public class Apricot {
         return Objects.hash(weight, color, TYPE);
     }
 }
-
-
