@@ -7,14 +7,13 @@ import java.util.Objects;
 
 public class Cranberry {
 
-    public final Type TYPE;
+    public final Type TYPE = Type.BERRIES;
 
     private int weigh;
 
     private Color color;
 
-    public Cranberry(Type TYPE, int weigh, Color color) {
-        this.TYPE = TYPE;
+    public Cranberry(int weigh, Color color) {
         this.weigh = weigh;
         this.color = color;
     }

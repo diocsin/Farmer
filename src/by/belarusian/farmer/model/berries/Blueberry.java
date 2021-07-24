@@ -7,15 +7,34 @@ import java.util.Objects;
 
 public class Blueberry {
 
-    public final Type TYPE;
+    public final Type TYPE = Type.BERRIES;
 
     private int weigh;
 
     private Color color;
 
-    public Blueberry(Type TYPE, int weigh, Color color) {
-        this.TYPE = TYPE;
+    public Blueberry(int weigh, Color color) {
         this.weigh = weigh;
+        this.color = color;
+    }
+
+    public Type getTYPE() {
+        return TYPE;
+    }
+
+    public int getWeigh() {
+        return weigh;
+    }
+
+    public void setWeigh(int weigh) {
+        this.weigh = weigh;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
         this.color = color;
     }
 
