@@ -17,5 +17,15 @@ public class HarvestUtil {
         }
         return filteredList;
     }
+    public List<Harvest> moreFilter(List<Harvest> harvests, int weight) {
+
+        List<Harvest> resultHarvest = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (harvest.getWeight() > weight) {
+                resultHarvest.add(harvest);
+            }
+        }
+        return resultHarvest;
+    }
 
 }
