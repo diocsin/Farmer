@@ -9,7 +9,7 @@ import java.util.List;
 
 public class HarvestUtil {
 
-    public List<Harvest> filter(List<Harvest> list, Type type) {
+    public List<Harvest> filterByType(List<Harvest> list, Type type) {
         List<Harvest> filteredList = new ArrayList<>();
         for (Harvest value : list) {
             if (value.getType() == type) {
