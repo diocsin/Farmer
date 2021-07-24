@@ -11,6 +11,7 @@ public class Blueberry extends Berry {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Черника";
     }

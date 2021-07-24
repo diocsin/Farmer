@@ -9,6 +9,7 @@ public class Potato extends Vegetable {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Картофель";
     }
