@@ -8,8 +8,11 @@ import java.util.Objects;
 
 public class Apple extends Fruit {
 
-
-    public Apple(Long weight, Color color) {
+    public Apple(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Яблоко";
     }
 }

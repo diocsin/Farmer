@@ -5,7 +5,11 @@ import by.belarusian.farmer.model.Vegetable;
 
 public class Carrot extends Vegetable {
 
-    public Carrot(Long weight, Color color) {
+    public Carrot(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Морковь";
     }
 }

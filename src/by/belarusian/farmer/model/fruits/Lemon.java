@@ -9,7 +9,11 @@ import java.util.Objects;
 public class Lemon extends Fruit {
 
 
-    public Lemon(Long weight, Color color) {
+    public Lemon(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Лимон";
     }
 }

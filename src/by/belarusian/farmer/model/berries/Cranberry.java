@@ -9,7 +9,11 @@ import java.util.Objects;
 public class Cranberry extends Berry {
 
 
-    public Cranberry(Long weight, Color color) {
+    public Cranberry(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Клюква";
     }
 }

@@ -5,7 +5,11 @@ import by.belarusian.farmer.model.Vegetable;
 
 public class Radish extends Vegetable {
 
-    public Radish(Long weight, Color color) {
+    public Radish(int weight, Color color) {
         super(weight, color);
+    }
+
+    public String getRusName() {
+        return "Редиска";
     }
 }
