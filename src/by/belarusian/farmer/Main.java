@@ -1,13 +1,18 @@
 package by.belarusian.farmer;
 
 import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.model.Vegetable;
+import by.belarusian.farmer.model.berries.Blueberry;
 import by.belarusian.farmer.model.berries.Cherry;
 import by.belarusian.farmer.model.fruits.Apple;
 import by.belarusian.farmer.model.fruits.Banana;
 import by.belarusian.farmer.model.fruits.Lemon;
+import by.belarusian.farmer.model.vegetables.Beet;
 import by.belarusian.farmer.model.vegetables.Cucumber;
+import by.belarusian.farmer.model.vegetables.Pepper;
 import by.belarusian.farmer.model.vegetables.Tomato;
 import by.belarusian.farmer.utils.HarvestUtil;
 import by.belarusian.farmer.utils.PrintUtil;
@@ -32,12 +37,16 @@ public class Main {
         Apple a3 = new Apple(200, Color.ORANGE);
         Banana b1 = new Banana(150, Color.PURPLE);
         Lemon l1 = new Lemon(520, Color.GREY);
-        List<Fruit> appleList = Arrays.asList(a1,a2, a3, b1, l1);
-        HarvestUtil.weightGreaterThen(appleList, 200).stream().forEach(System.out::println);
+        List<Fruit> fruits = Arrays.asList(a1, a2, a3, b1, l1);
+        HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println);
 
-
-
-//        HarvestUtil.takeOnlyType();
+        Beet be1 = new Beet(300, Color.GREY);
+        Pepper pe1 = new Pepper(270, Color.BLACK);
+        Cherry ce1 = new Cherry(100, Color.RED);
+        Blueberry blu1 = new Blueberry(50, Color.BLUE);
+        List<Harvest> harvests = Arrays.asList(a1, a2, a3, b1, l1, be1, pe1, ce1, blu1);
+        System.out.println();
+        HarvestUtil.takeOnlyType(harvests, Vegetable.class).stream().forEach(System.out::println);
 
     }
 }

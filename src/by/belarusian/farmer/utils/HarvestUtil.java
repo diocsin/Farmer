@@ -17,8 +17,12 @@ public class HarvestUtil {
         return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
     }
 
-    public static <T extends Harvest> List<T> takeOnlyType(Collection<T> collection, Class clazz){
-        return collection.stream().filter(obj -> obj.equals(clazz)).collect(Collectors.toList());
+    public static <T extends Harvest, clazz> List<T> takeOnlyType(Collection<T> collection, Class<? extends Harvest> clazz){
+        if (collection.isEmpty() || collection == null) {
+            return new ArrayList<>();
+        }
+        return collection.stream().filter(obj -> clazz.isInstance(obj)).collect(Collectors.toList());
+        //collection.stream().filter(obj -> (obj.getClass().equals(clazz))).collect(Collectors.toList());
     }
 
 
