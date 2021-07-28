@@ -252,8 +252,10 @@ public class HarvestFactory {
             case 6:
                 return new Orange(rand.nextInt(300), colors[rand.nextInt(10)]);
 
+            default:
+                return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);
         }
-        return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);  //todo default
+
     }
 
     private static Vegetable getVegetable() {
@@ -278,8 +280,11 @@ public class HarvestFactory {
             case 5:
                 return new Radish(rand.nextInt(50), colors[rand.nextInt(10)]);
 
+            default:
+                return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]);
+
         }
-        return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]); //todo default
+
     }
 
 
