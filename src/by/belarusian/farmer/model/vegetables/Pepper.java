@@ -11,6 +11,7 @@ public class Pepper extends Vegetable {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Перец";
     }

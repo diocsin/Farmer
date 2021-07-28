@@ -9,6 +9,7 @@ public class Beet extends Vegetable {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Свекла";
     }

@@ -11,7 +11,10 @@ public class Banana extends Fruit {
     public Banana(int weight, Color color) {
         super(weight, color);
     }
+
+    @Override
     public String getRusName() {
         return "Банан";
     }
+
 }

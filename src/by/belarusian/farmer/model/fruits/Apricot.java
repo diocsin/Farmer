@@ -12,6 +12,7 @@ public class Apricot extends Fruit {
         super(weight, color);
     }
 
+    @Override
     public String getRusName() {
         return "Абрикос";
     }
