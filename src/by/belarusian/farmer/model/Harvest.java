@@ -7,15 +7,16 @@ import java.util.Objects;
 
 public abstract class Harvest {
 
-    private Type type; //Todo Должно быть final
+    private final Type type;
 
     private int weight;
 
     private Color color;
 
-    public Harvest(int weight, Color color) {
+    public Harvest(int weight, Color color, Type type) {
         this.weight = weight;
         this.color = color;
+        this.type =type;
     }
 
     public int getWeight() {
@@ -38,13 +39,10 @@ public abstract class Harvest {
         return type;
     }
 
-    public void setType(Type type) {
-        this.type = type;
-    }
 
     public String getRusName(){
         return "Плод";
-    } //Todo убрать и перенести в toString
+    }
 
     @Override
     public boolean equals(Object o) {
