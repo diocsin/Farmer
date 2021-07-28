@@ -8,7 +8,6 @@ import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.*;
 import java.util.stream.Collectors;
-//Todo Все методы которые публичные в этом классе должны быть static
 public class HarvestUtil {
 
     public static <T extends Harvest> List<T> weightGreaterThen(List<T> collection, int weight) {
@@ -33,7 +32,6 @@ public class HarvestUtil {
                 filteredList.add(value);
             }
         }
-        filteredList.sort(new HarvestComporator()); //todo лищняя операция.
         return filteredList;
     }
 
@@ -45,7 +43,6 @@ public class HarvestUtil {
                 resultHarvest.add(harvest);
             }
         }
-        resultHarvest.sort(new HarvestComporator()); //todo лищняя операция.
         return resultHarvest;
 
     }
@@ -57,7 +54,6 @@ public class HarvestUtil {
                 list.add(harvest);
             }
         }
-        list.sort(new HarvestComporator()); //todo лищняя операция.
         return list;
     }
 
@@ -67,9 +63,7 @@ public class HarvestUtil {
             if (iter.next().getWeight() < weight) {
                 iter.remove();
             }
-            Collections.sort(list, new HarvestComporator()); //todo лищняя операция.
         }
-        list.sort(new HarvestComporator()); //todo лищняя операция.
         return list;
     }
 }
