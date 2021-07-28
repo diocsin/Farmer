@@ -19,7 +19,7 @@ import java.util.List;
 public class HarvestUtil {
 
 
-    public static <T extends Harvest> List<T> weightGreaterThen(Collection<? extends Harvest> collection, int weight){
+    public static <T extends Harvest> List<T> weightGreaterThen(Collection<? extends Harvest> collection, int weight) {
         List<?> list = collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
         return (List<T>) list;
     }
@@ -33,6 +33,7 @@ public class HarvestUtil {
         }
         return filteredList;
     }
+
     public List<Harvest> minThen(List<Harvest> harvests, int weight) {
 
         List<Harvest> resultHarvest = new ArrayList<>();
@@ -45,6 +46,7 @@ public class HarvestUtil {
         return resultHarvest;
 
     }
+
     public List<Harvest> filterColor(List<Harvest> harvests, Color color) {
         List<Harvest> list = new ArrayList<>();
         for (Harvest harvest : harvests) {
@@ -54,15 +56,19 @@ public class HarvestUtil {
         }
         return list;
     }
-            List<Harvest> filterOverWeight(List<Harvest> list, int weight){
 
-                Iterator <Harvest> iter = list.iterator();
-                while (iter.hasNext()){
-                    if(iter.next().getWeight()<weight) {
-                        iter.remove();
-                    }
-                    Collections.sort(list, new HarvestComporator());
-                }
-                return list;
+    List<Harvest> filterOverWeight(List<Harvest> list, int weight) {
+
+        Iterator<Harvest> iter = list.iterator();
+        while (iter.hasNext()) {
+            if (iter.next().getWeight() < weight) {
+                iter.remove();
             }
+            Collections.sort(list, new HarvestComporator());
+        }
+        return list;
+    }
+
+
+
 }
