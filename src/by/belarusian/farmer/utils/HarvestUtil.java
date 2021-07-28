@@ -56,12 +56,12 @@ public class HarvestUtil {
     }
 
     public static List<Harvest> biggerThen(List<Harvest> list, int weight) {
-        Iterator<Harvest> iter = list.iterator();
-        while (iter.hasNext()) {
-            if (iter.next().getWeight() < weight) {
-                iter.remove();
+        List<Harvest> resultHarvest = new ArrayList<>();
+        for (Harvest harvest : list) {
+            if (harvest.getWeight() > weight) {
+                resultHarvest.add(harvest);
             }
         }
-        return list;
+        return resultHarvest;
     }
 }

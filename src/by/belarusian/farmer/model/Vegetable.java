@@ -6,7 +6,7 @@ import by.belarusian.farmer.enums.Type;
 public abstract class Vegetable extends Harvest {
 
     public Vegetable(int weight, Color color) {
-        super(weight, color);
-        super.setType(Type.VEGETABLES);
+        super(weight, color, Type.FRUITS);
+
     }
 }
