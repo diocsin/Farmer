@@ -47,10 +47,6 @@ public abstract class Harvest {
     //Todo тут должен быть HashCode и Equals
     @Override
     public String toString() {
-        return "Harvest{" +
-                "type=" + type +
-                ", weight=" + weight +
-                ", color=" + color +
-                '}';
+        return this.getType().getRusName() + " - " + this.getRusName() + " " + this.getWeight() + " грамм, цвет - " + this.getColor().getRusName();
     }
 }
