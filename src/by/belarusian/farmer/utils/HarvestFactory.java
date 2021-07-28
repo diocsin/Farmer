@@ -180,7 +180,7 @@ public class HarvestFactory {
 
 
         for (int i = 0; i < number; i++) {
-            switch (rand.nextInt(2)) {
+            switch (rand.nextInt(3)) {
 
                 case 0:
                     harvestList.add(getBerry());
