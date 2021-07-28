@@ -25,124 +25,124 @@ public class HarvestFactory {
 
         ArrayList<Harvest> harvests = new ArrayList<>();
 
-        if (cl.isInstance(Apple.class)) {
+        if (cl.isAssignableFrom(Apple.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Apple(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Apricot.class)) {
+        if (cl.isAssignableFrom(Apricot.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Grape.class)) {
+        if (cl.isAssignableFrom(Grape.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Grape(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Blueberry.class)) {
+        if (cl.isAssignableFrom(Blueberry.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Blueberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Cherry.class)) {
+        if (cl.isAssignableFrom(Cherry.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Cherry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Cranberry.class)) {
+        if (cl.isAssignableFrom(Cranberry.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Cranberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Currant.class)) {
+        if (cl.isAssignableFrom(Currant.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Currant(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Strawberry.class)) {
+        if (cl.isAssignableFrom(Strawberry.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Strawberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Gooseberry.class)) {
+        if (cl.isAssignableFrom(Gooseberry.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Gooseberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Banana.class)) {
+        if (cl.isAssignableFrom(Banana.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Banana(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Apricot.class)) {
+        if (cl.isAssignableFrom(Apricot.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Garnet.class)) {
+        if (cl.isAssignableFrom(Garnet.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Garnet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Guava.class)) {
+        if (cl.isAssignableFrom(Guava.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Guava(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Lemon.class)) {
+        if (cl.isAssignableFrom(Lemon.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Lemon(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Orange.class)) {
+        if (cl.isAssignableFrom(Orange.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Orange(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Plum.class)) {
+        if (cl.isAssignableFrom(Plum.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Plum(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Beet.class)) {
+        if (cl.isAssignableFrom(Beet.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Beet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Carrot.class)) {
+        if (cl.isAssignableFrom(Carrot.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Carrot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Cucumber.class)) {
+        if (cl.isAssignableFrom(Cucumber.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Cucumber(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Pepper.class)) {
+        if (cl.isAssignableFrom(Pepper.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Pepper(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Potato.class)) {
+        if (cl.isAssignableFrom(Potato.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Potato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
-        if (cl.isInstance(Radish.class)) {
+        if (cl.isAssignableFrom(Radish.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Radish(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
-        if (cl.isInstance(Tomato.class)) {
+        if (cl.isAssignableFrom(Tomato.class)) {
             for (int i = 0; i < count; i++) {
                 harvests.add(new Tomato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
@@ -205,25 +205,25 @@ public class HarvestFactory {
         switch (rand.nextInt(6)) {
 
             case 0:
-                return new Blueberry(rand.nextInt(10), colors[rand.nextInt(10)]);
+                return new Blueberry(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
 
             case 1:
-                return new Cherry(rand.nextInt(20), colors[rand.nextInt(10)]);
+                return new Cherry(rand.nextInt(20) + 1, colors[rand.nextInt(10)]);
 
             case 2:
-                return new Cranberry(rand.nextInt(10), colors[rand.nextInt(10)]);
+                return new Cranberry(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
 
             case 3:
-                return new Currant(rand.nextInt(10), colors[rand.nextInt(10)]);
+                return new Currant(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
 
             case 4:
-                return new Gooseberry(rand.nextInt(20), colors[rand.nextInt(10)]);
+                return new Gooseberry(rand.nextInt(20) + 1, colors[rand.nextInt(10)]);
 
             case 5:
-                return new Grape(rand.nextInt(30), colors[rand.nextInt(10)]);
+                return new Grape(rand.nextInt(30) + 1, colors[rand.nextInt(10)]);
 
             default:
-                return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);
+                return new Strawberry(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
         }
     }
 
@@ -232,28 +232,28 @@ public class HarvestFactory {
         switch (rand.nextInt(7)) {
 
             case 0:
-                return new Apple(rand.nextInt(500), colors[rand.nextInt(10)]);
+                return new Apple(rand.nextInt(500) + 1, colors[rand.nextInt(10)]);
 
             case 1:
-                return new Apricot(rand.nextInt(400), colors[rand.nextInt(10)]);
+                return new Apricot(rand.nextInt(400) + 1, colors[rand.nextInt(10)]);
 
             case 2:
-                return new Banana(rand.nextInt(300), colors[rand.nextInt(10)]);
+                return new Banana(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
 
             case 3:
-                return new Garnet(rand.nextInt(150), colors[rand.nextInt(10)]);
+                return new Garnet(rand.nextInt(150) + 1, colors[rand.nextInt(10)]);
 
             case 4:
-                return new Guava(rand.nextInt(400), colors[rand.nextInt(10)]);
+                return new Guava(rand.nextInt(400) + 1, colors[rand.nextInt(10)]);
 
             case 5:
-                return new Lemon(rand.nextInt(100), colors[rand.nextInt(10)]);
+                return new Lemon(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
 
             case 6:
-                return new Orange(rand.nextInt(300), colors[rand.nextInt(10)]);
+                return new Orange(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
 
             default:
-                return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);
+                return new Plum(rand.nextInt(70) + 1, colors[rand.nextInt(10)]);
         }
 
     }
@@ -263,25 +263,25 @@ public class HarvestFactory {
         switch (rand.nextInt(6)) {
 
             case 0:
-                return new Beet(rand.nextInt(200), colors[rand.nextInt(10)]);
+                return new Beet(rand.nextInt(200) + 1, colors[rand.nextInt(10)]);
 
             case 1:
-                return new Carrot(rand.nextInt(200), colors[rand.nextInt(10)]);
+                return new Carrot(rand.nextInt(200) + 1, colors[rand.nextInt(10)]);
 
             case 2:
-                return new Cucumber(rand.nextInt(500), colors[rand.nextInt(10)]);
+                return new Cucumber(rand.nextInt(500) + 1, colors[rand.nextInt(10)]);
 
             case 3:
-                return new Pepper(rand.nextInt(100), colors[rand.nextInt(10)]);
+                return new Pepper(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
 
             case 4:
-                return new Potato(rand.nextInt(300), colors[rand.nextInt(10)]);
+                return new Potato(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
 
             case 5:
-                return new Radish(rand.nextInt(50), colors[rand.nextInt(10)]);
+                return new Radish(rand.nextInt(50) + 1, colors[rand.nextInt(10)]);
 
             default:
-                return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]);
+                return new Tomato(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
 
         }
 
