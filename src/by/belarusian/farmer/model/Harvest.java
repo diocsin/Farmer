@@ -3,6 +3,8 @@ package by.belarusian.farmer.model;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 
+import java.util.Objects;
+
 public abstract class Harvest {
 
     private Type type; //Todo Должно быть final
@@ -44,7 +46,19 @@ public abstract class Harvest {
         return "Плод";
     } //Todo убрать и перенести в toString
 
-    //Todo тут должен быть HashCode и Equals
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Harvest harvest = (Harvest) o;
+        return weight == harvest.weight && type == harvest.type && color == harvest.color;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(type, weight, color);
+    }
+
     @Override
     public String toString() {
         return this.getType().getRusName() + " - " + this.getRusName() + " " + this.getWeight() + " грамм, цвет - " + this.getColor().getRusName();
