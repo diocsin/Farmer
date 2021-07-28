@@ -16,6 +16,7 @@ import java.util.Random;
 
 public class HarvestFactory {
 
+
     private static Color[] colors = Color.values();
     private static Type[] types = Type.values();
     private static Random rand = new Random();
