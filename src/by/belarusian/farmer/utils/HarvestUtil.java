@@ -2,9 +2,7 @@ package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
-import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
-import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -36,7 +34,7 @@ public class HarvestUtil {
                 filteredList.add(value);
             }
         }
-        filteredList.sort(new HarvestComporator()); //todo лищняя операция.
+        filteredList.sort(new HarvestComparator()); //todo лищняя операция.
         return filteredList;
     }
 
@@ -48,7 +46,7 @@ public class HarvestUtil {
                 resultHarvest.add(harvest);
             }
         }
-        resultHarvest.sort(new HarvestComporator()); //todo лищняя операция.
+        resultHarvest.sort(new HarvestComparator()); //todo лищняя операция.
         return resultHarvest;
 
     }
@@ -60,7 +58,7 @@ public class HarvestUtil {
                 list.add(harvest);
             }
         }
-        list.sort(new HarvestComporator()); //todo лищняя операция.
+        list.sort(new HarvestComparator()); //todo лищняя операция.
         return list;
     }
 
@@ -70,9 +68,9 @@ public class HarvestUtil {
             if (iter.next().getWeight() < weight) {
                 iter.remove();
             }
-            Collections.sort(list, new HarvestComporator()); //todo лищняя операция.
+            Collections.sort(list, new HarvestComparator()); //todo лищняя операция.
         }
-        list.sort(new HarvestComporator()); //todo лищняя операция.
+        list.sort(new HarvestComparator()); //todo лищняя операция.
         return list;
     }
 }
