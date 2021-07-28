@@ -5,165 +5,152 @@ import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.berries.*;
-import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.Vegetable;
 import by.belarusian.farmer.model.berries.*;
 import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.vegetables.*;
 
 import java.util.ArrayList;
-import java.util.Random;
-import by.belarusian.farmer.model.Berry;
-import by.belarusian.farmer.model.Vegetable;
-import by.belarusian.farmer.model.vegetables.*;
-
-
 import java.util.List;
+import java.util.Random;
 
-//Todo Все методы которые публичные в этом классе должны быть static
 public class HarvestFactory {
 
-    public ArrayList<Harvest> generate(Class cl, int count) {
+    private static Color[] colors = Color.values();
+    private static Type[] types = Type.values();
+    private static Random rand = new Random();
+
+
+    public static ArrayList<Harvest> generate(Class cl, int count) {
 
         ArrayList<Harvest> harvests = new ArrayList<>();
-        Random random = new Random();
 
         if (cl.isInstance(Apple.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Apple(random.nextInt(3), Color.values()[random.nextInt(12)]));
-
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Apple(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
-
         }
 
         if (cl.isInstance(Apricot.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Apricot(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Grape.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Grape(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Grape(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Blueberry.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Blueberry(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Blueberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Cherry.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Cherry(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Cherry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Cranberry.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Cranberry(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Cranberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Currant.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Currant(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Currant(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Strawberry.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Strawberry(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Strawberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Gooseberry.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Gooseberry(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Gooseberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Banana.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Banana(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Banana(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Apricot.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Apricot(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Garnet.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Garnet(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Garnet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Guava.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Guava(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Guava(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Lemon.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Lemon(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Lemon(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Orange.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Orange(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Orange(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Plum.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Plum(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Plum(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Beet.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Beet(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Beet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Carrot.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Carrot(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Carrot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Cucumber.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Cucumber(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Cucumber(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Pepper.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Pepper(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Pepper(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Potato.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Potato(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Potato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
 
         if (cl.isInstance(Radish.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Radish(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Radish(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         if (cl.isInstance(Tomato.class)) {
-            for(int i = 0; i < count; i++) {
-                harvests.add(new Tomato(random.nextInt(3), Color.values()[random.nextInt(12)]));
+            for (int i = 0; i < count; i++) {
+                harvests.add(new Tomato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
             }
         }
         return harvests;
     }
 
-    public void test() { //Todo убрать
-        generate(Apple.class, 23);
-    }
-    private Random rand = new Random();//Todo перенести переменные вверх
-    private Color[] colors = Color.values();
-    private Type[] types = Type.values();
-
-    public List<Harvest> getHarvestType(int amount, Type type) {
+    public static List<Harvest> getHarvestType(int amount, Type type) {
         List<Harvest> harvestList = new ArrayList<>();
 
         if (type == Type.VEGETABLES) {
@@ -187,7 +174,8 @@ public class HarvestFactory {
         return harvestList;
     }
 
-    public List<Harvest> getHarvest(int number) {
+    public static List<Harvest> getHarvest(int number) {
+
         List<Harvest> harvestList = new ArrayList<>();
 
 
@@ -212,7 +200,7 @@ public class HarvestFactory {
         return harvestList;
     }
 
-    private Berry getBerry() {
+    private static Berry getBerry() {
 
         switch (rand.nextInt(6)) {
 
@@ -233,13 +221,15 @@ public class HarvestFactory {
 
             case 5:
                 return new Grape(rand.nextInt(30), colors[rand.nextInt(10)]);
+
+            default:
+                return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);
         }
-        return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);  //todo default
     }
 
-    private Fruit getFruit() {
+    private static Fruit getFruit() {
 
-        switch (rand.nextInt(7)){
+        switch (rand.nextInt(7)) {
 
             case 0:
                 return new Apple(rand.nextInt(500), colors[rand.nextInt(10)]);
@@ -266,9 +256,9 @@ public class HarvestFactory {
         return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);  //todo default
     }
 
-    private Vegetable getVegetable() {
+    private static Vegetable getVegetable() {
 
-        switch (rand.nextInt(6)){
+        switch (rand.nextInt(6)) {
 
             case 0:
                 return new Beet(rand.nextInt(200), colors[rand.nextInt(10)]);
