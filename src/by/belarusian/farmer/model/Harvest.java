@@ -5,7 +5,7 @@ import by.belarusian.farmer.enums.Type;
 
 public abstract class Harvest {
 
-    private Type type;
+    private Type type; //Todo Должно быть final
 
     private int weight;
 
@@ -42,8 +42,9 @@ public abstract class Harvest {
 
     public String getRusName(){
         return "Плод";
-    }
+    } //Todo убрать и перенести в toString
 
+    //Todo тут должен быть HashCode и Equals
     @Override
     public String toString() {
         return "Harvest{" +

@@ -21,7 +21,7 @@ import by.belarusian.farmer.model.vegetables.*;
 
 import java.util.List;
 
-
+//Todo Все методы которые публичные в этом классе должны быть static
 public class HarvestFactory {
 
     public ArrayList<Harvest> generate(Class cl, int count) {
@@ -156,10 +156,10 @@ public class HarvestFactory {
         return harvests;
     }
 
-    public void test() {
+    public void test() { //Todo убрать
         generate(Apple.class, 23);
     }
-    private Random rand = new Random();
+    private Random rand = new Random();//Todo перенести переменные вверх
     private Color[] colors = Color.values();
     private Type[] types = Type.values();
 
@@ -234,7 +234,7 @@ public class HarvestFactory {
             case 5:
                 return new Grape(rand.nextInt(30), colors[rand.nextInt(10)]);
         }
-        return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);
+        return new Strawberry(rand.nextInt(100), colors[rand.nextInt(10)]);  //todo default
     }
 
     private Fruit getFruit() {
@@ -263,7 +263,7 @@ public class HarvestFactory {
                 return new Orange(rand.nextInt(300), colors[rand.nextInt(10)]);
 
         }
-        return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);
+        return new Plum(rand.nextInt(70), colors[rand.nextInt(10)]);  //todo default
     }
 
     private Vegetable getVegetable() {
@@ -289,7 +289,7 @@ public class HarvestFactory {
                 return new Radish(rand.nextInt(50), colors[rand.nextInt(10)]);
 
         }
-        return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]);
+        return new Tomato(rand.nextInt(300), colors[rand.nextInt(10)]); //todo default
     }
 
 

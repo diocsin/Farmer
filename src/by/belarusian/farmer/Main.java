@@ -23,7 +23,9 @@ import java.util.Collection;
 import java.util.List;
 
 public class Main {
-
+//Todo Создать класс Корзина которая будет името одно поле это List<Harvest> и константу Размер корзины в граммах.
+    //todo Классе Фабрике плодов, сделать ещещ один метод который принимает List<Harvest> и возвращает List<Корзин> заполненных
+    //todo В корзинах лежат плоды одного типа.
     public static void main(String[] args) {
 //        Harvest harvest1 = new Cherry(123, Color.RED);
 //        Harvest harvest2 = new Cucumber(18, Color.GREEN);
@@ -38,7 +40,7 @@ public class Main {
         Banana b1 = new Banana(150, Color.PURPLE);
         Lemon l1 = new Lemon(520, Color.GREY);
         List<Fruit> fruits = Arrays.asList(a1, a2, a3, b1, l1);
-        HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println);
+        HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println); //todo Stream лишнее
 
         Beet be1 = new Beet(300, Color.GREY);
         Pepper pe1 = new Pepper(270, Color.BLACK);

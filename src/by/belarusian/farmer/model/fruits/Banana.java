@@ -16,4 +16,5 @@ public class Banana extends Fruit {
     public String getRusName() {
         return "Банан";
     }
+
 }
