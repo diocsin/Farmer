@@ -1,6 +1,7 @@
 package by.belarusian.farmer;
 
 import by.belarusian.farmer.enums.Color;
+import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
@@ -14,6 +15,8 @@ import by.belarusian.farmer.model.vegetables.Beet;
 import by.belarusian.farmer.model.vegetables.Cucumber;
 import by.belarusian.farmer.model.vegetables.Pepper;
 import by.belarusian.farmer.model.vegetables.Tomato;
+import by.belarusian.farmer.utils.HarvestComparator;
+import by.belarusian.farmer.utils.HarvestFactory;
 import by.belarusian.farmer.utils.HarvestUtil;
 import by.belarusian.farmer.utils.PrintUtil;
 
@@ -40,6 +43,8 @@ public class Main {
         Banana b1 = new Banana(150, Color.PURPLE);
         Lemon l1 = new Lemon(520, Color.GREY);
         List<Fruit> fruits = Arrays.asList(a1, a2, a3, b1, l1);
+        HarvestComparator harvestComparator = new HarvestComparator();
+        fruits.sort(harvestComparator);
         HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println); //todo Stream лишнее
 
         Beet be1 = new Beet(300, Color.GREY);
