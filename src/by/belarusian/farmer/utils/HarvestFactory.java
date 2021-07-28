@@ -5,21 +5,14 @@ import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.berries.*;
-import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.Vegetable;
 import by.belarusian.farmer.model.berries.*;
 import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.vegetables.*;
 
 import java.util.ArrayList;
-import java.util.Random;
-import by.belarusian.farmer.model.Berry;
-import by.belarusian.farmer.model.Vegetable;
-import by.belarusian.farmer.model.vegetables.*;
-
-
 import java.util.List;
+import java.util.Random;
 
 //Todo Все методы которые публичные в этом классе должны быть static
 public class HarvestFactory {
