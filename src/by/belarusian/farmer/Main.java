@@ -42,6 +42,8 @@ public class Main {
         List<Fruit> fruits = Arrays.asList(a1, a2, a3, b1, l1);
         HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println); //todo Stream лишнее
 
+
+
         Beet be1 = new Beet(300, Color.GREY);
         Pepper pe1 = new Pepper(270, Color.BLACK);
         Cherry ce1 = new Cherry(100, Color.RED);
