@@ -2,21 +2,24 @@ package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
+import com.sun.xml.internal.bind.v2.TODO;
 
 import java.util.*;
 import java.util.stream.Collectors;
+//Todo Все методы которые публичные в этом классе должны быть static
 public class HarvestUtil {
 
     public static <T extends Harvest> List<T> weightGreaterThen(List<T> collection, int weight) {
-        if (collection.isEmpty()) {
+        if (collection == null || collection.isEmpty()) {
             return new ArrayList<>();
         }
         return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
     }
 
     public static <T extends Harvest, clazz> List<T> takeOnlyType(Collection<T> collection, Class<? extends Harvest> clazz){
-        if (collection.isEmpty()) {
+        if (collection == null || collection.isEmpty()) {
             return new ArrayList<>();
         }
         return collection.stream().filter(obj -> clazz.isInstance(obj)).collect(Collectors.toList());
@@ -30,6 +33,7 @@ public class HarvestUtil {
                 filteredList.add(value);
             }
         }
+        filteredList.sort(new HarvestComporator()); //todo лищняя операция.
         return filteredList;
     }
 
@@ -41,6 +45,7 @@ public class HarvestUtil {
                 resultHarvest.add(harvest);
             }
         }
+        resultHarvest.sort(new HarvestComporator()); //todo лищняя операция.
         return resultHarvest;
 
     }
@@ -52,6 +57,7 @@ public class HarvestUtil {
                 list.add(harvest);
             }
         }
+        list.sort(new HarvestComporator()); //todo лищняя операция.
         return list;
     }
 
@@ -61,7 +67,9 @@ public class HarvestUtil {
             if (iter.next().getWeight() < weight) {
                 iter.remove();
             }
+            Collections.sort(list, new HarvestComporator()); //todo лищняя операция.
         }
+        list.sort(new HarvestComporator()); //todo лищняя операция.
         return list;
     }
 }
