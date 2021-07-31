@@ -30,32 +30,7 @@ public class Main {
     //todo Классе Фабрике плодов, сделать ещещ один метод который принимает List<Harvest> и возвращает List<Корзин> заполненных
     //todo В корзинах лежат плоды одного типа.
     public static void main(String[] args) {
-//        Harvest harvest1 = new Cherry(123, Color.RED);
-//        Harvest harvest2 = new Cucumber(18, Color.GREEN);
-//        ArrayList<Harvest> list = new ArrayList<Harvest>();
-//        list.add(harvest1);
-//        list.add(harvest2);
-//        PrintUtil.print(list);
 
-        Apple a1 = new Apple(500, Color.GREEN);
-        Apple a2 = new Apple(400, Color.BROWN);
-        Apple a3 = new Apple(200, Color.ORANGE);
-        Banana b1 = new Banana(150, Color.PURPLE);
-        Lemon l1 = new Lemon(520, Color.GREY);
-        List<Fruit> fruits = Arrays.asList(a1, a2, a3, b1, l1);
-        HarvestComparator harvestComparator = new HarvestComparator();
-        fruits.sort(harvestComparator);
-        HarvestUtil.weightGreaterThen(fruits, 200).stream().forEach(System.out::println); //todo Stream лишнее
-
-
-
-        Beet be1 = new Beet(300, Color.GREY);
-        Pepper pe1 = new Pepper(270, Color.BLACK);
-        Cherry ce1 = new Cherry(100, Color.RED);
-        Blueberry blu1 = new Blueberry(50, Color.BLUE);
-        List<Harvest> harvests = Arrays.asList(a1, a2, a3, b1, l1, be1, pe1, ce1, blu1);
-        System.out.println();
-        HarvestUtil.takeOnlyType(harvests, Vegetable.class).stream().forEach(System.out::println);
 
     }
 }
