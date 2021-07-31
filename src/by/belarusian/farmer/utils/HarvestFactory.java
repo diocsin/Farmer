@@ -9,6 +9,7 @@ import by.belarusian.farmer.model.Vegetable;
 import by.belarusian.farmer.model.berries.*;
 import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.vegetables.*;
+import by.belarusian.farmer.system.Basket;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,130 +22,146 @@ public class HarvestFactory {
     private static Random rand = new Random();
 
 
+    public static List<Basket> getAllBaskets(List<Harvest> harvests) {
+
+        List<Harvest> berry = HarvestUtil.takeOnlyType(harvests, Berry.class);
+        List<Harvest> fruit = HarvestUtil.takeOnlyType(harvests, Fruit.class);
+        List<Harvest> vegetable =  HarvestUtil.takeOnlyType(harvests, Vegetable.class);
+
+
+        List<Basket> basketList = new ArrayList<>();
+        basketList.add(new Basket(berry));
+        basketList.add(new Basket(fruit));
+        basketList.add(new Basket(vegetable));
+        return basketList;
+    }
+
+
+
     public static ArrayList<Harvest> generate(Class cl, int count) {
 
         ArrayList<Harvest> harvests = new ArrayList<>();
 
-        if (cl.isAssignableFrom(Apple.class)) {
+        if (cl.isNestmateOf(Apple.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apple(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Apple(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Apricot.class)) {
+        if (cl.isNestmateOf(Apricot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Grape.class)) {
+        if (cl.isNestmateOf(Grape.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Grape(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Grape(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Blueberry.class)) {
+        if (cl.isNestmateOf(Blueberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Blueberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Blueberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Cherry.class)) {
+        if (cl.isNestmateOf(Cherry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cherry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Cherry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Cranberry.class)) {
+        if (cl.isNestmateOf(Cranberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cranberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Cranberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Currant.class)) {
+        if (cl.isNestmateOf(Currant.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Currant(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Currant(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Strawberry.class)) {
+        if (cl.isNestmateOf(Strawberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Strawberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Strawberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Gooseberry.class)) {
+        if (cl.isNestmateOf(Gooseberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Gooseberry(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Gooseberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Banana.class)) {
+        if (cl.isNestmateOf(Banana.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Banana(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Banana(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Apricot.class)) {
+        if (cl.isNestmateOf(Apricot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Garnet.class)) {
+        if (cl.isNestmateOf(Garnet.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Garnet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Garnet(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Guava.class)) {
+        if (cl.isNestmateOf(Guava.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Guava(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Guava(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Lemon.class)) {
+        if (cl.isNestmateOf(Lemon.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Lemon(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Lemon(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Orange.class)) {
+        if (cl.isNestmateOf(Orange.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Orange(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Orange(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Plum.class)) {
+        if (cl.isNestmateOf(Plum.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Plum(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Plum(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Beet.class)) {
+        if (cl.isNestmateOf(Beet.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Beet(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Beet(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Carrot.class)) {
+        if (cl.isNestmateOf(Carrot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Carrot(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Carrot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Cucumber.class)) {
+        if (cl.isNestmateOf(Cucumber.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cucumber(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Cucumber(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Pepper.class)) {
+        if (cl.isNestmateOf(Pepper.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Pepper(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Pepper(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Potato.class)) {
+        if (cl.isNestmateOf(Potato.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Potato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Potato(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
 
-        if (cl.isAssignableFrom(Radish.class)) {
+        if (cl.isNestmateOf(Radish.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Radish(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Radish(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
-        if (cl.isAssignableFrom(Tomato.class)) {
+        if (cl.isNestmateOf(Tomato.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Tomato(rand.nextInt(3), Color.values()[rand.nextInt(12)]));
+                harvests.add(new Tomato(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
             }
         }
         return harvests;

@@ -20,7 +20,6 @@ public class HarvestUtil {
             return new ArrayList<T>();
         }
         return collection.stream().filter(obj -> clazz.isInstance(obj)).collect(Collectors.toList());
-        //collection.stream().filter(obj -> (obj.getClass().equals(clazz))).collect(Collectors.toList());
     }
 
     public static List<Harvest> filterByType(List<Harvest> list, Type type) {

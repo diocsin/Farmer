@@ -26,10 +26,22 @@ import java.util.Collection;
 import java.util.List;
 
 public class Main {
-//Todo Создать класс Корзина которая будет името одно поле это List<Harvest> и константу Размер корзины в граммах.
+    //Todo Создать класс Корзина которая будет името одно поле это List<Harvest> и константу Размер корзины в граммах.
     //todo Классе Фабрике плодов, сделать ещещ один метод который принимает List<Harvest> и возвращает List<Корзин> заполненных
     //todo В корзинах лежат плоды одного типа.
     public static void main(String[] args) {
+
+
+        List<Harvest> berry = HarvestFactory.getHarvestType(10000, Type.BERRIES);
+        List<Harvest> vegetable = HarvestFactory.getHarvestType(5000, Type.VEGETABLES);
+        List<Harvest> fruit = HarvestFactory.getHarvestType(300, Type.FRUITS);
+
+        List<Harvest> harvestList = new ArrayList<>();
+        berry.forEach(b -> harvestList.add(b));
+        vegetable.forEach(v -> harvestList.add(v));
+        fruit.forEach(f -> harvestList.add(f));
+
+        HarvestFactory.getAllBaskets(harvestList).forEach(System.out::println);
 
 
     }
