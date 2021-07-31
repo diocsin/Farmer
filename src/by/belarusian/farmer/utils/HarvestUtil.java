@@ -8,11 +8,19 @@ import java.util.*;
 import java.util.stream.Collectors;
 public class HarvestUtil {
 
+
     public static <T extends Harvest> List<T> weightGreaterThen(List<T> collection, int weight) {
         if (collection == null || collection.isEmpty()) {
             return new ArrayList<>();
         }
         return collection.stream().filter(plod -> plod.getWeight() > weight).collect(Collectors.toList());
+    }
+
+    public static <T extends Harvest> List<T> weightLessThen(List<T> collection, int weight) {
+        if (collection == null || collection.isEmpty()) {
+            return new ArrayList<>();
+        }
+        return collection.stream().filter(plod -> plod.getWeight() < weight).collect(Collectors.toList());
     }
 
     public static <T extends Harvest> List<T> takeOnlyType(Collection<T> collection, Class<? extends Harvest> clazz){

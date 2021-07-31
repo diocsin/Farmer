@@ -44,130 +44,130 @@ public class HarvestFactory {
 
         if (cl.isNestmateOf(Apple.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apple(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Apple(rand.nextInt(500), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Apricot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Apricot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Grape.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Grape(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Grape(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Blueberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Blueberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Blueberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Cherry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cherry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Cherry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Cranberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cranberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Cranberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Currant.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Currant(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Currant(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Strawberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Strawberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Strawberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Gooseberry.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Gooseberry(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Gooseberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Banana.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Banana(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Banana(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Apricot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Apricot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Garnet.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Garnet(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Garnet(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Guava.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Guava(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Guava(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Lemon.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Lemon(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Lemon(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Orange.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Orange(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Orange(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Plum.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Plum(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Plum(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Beet.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Beet(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Beet(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Carrot.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Carrot(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Carrot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Cucumber.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Cucumber(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Cucumber(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Pepper.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Pepper(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Pepper(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Potato.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Potato(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Potato(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
 
         if (cl.isNestmateOf(Radish.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Radish(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Radish(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         if (cl.isNestmateOf(Tomato.class)) {
             for (int i = 0; i < count; i++) {
-                harvests.add(new Tomato(rand.nextInt(3), Color.values()[rand.nextInt(11)]));
+                harvests.add(new Tomato(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
             }
         }
         return harvests;
     }
 
-    public static List<Harvest> getHarvestType(int amount, Type type) {
+    public static List<Harvest> generateHarvestType(int amount, Type type) {
         List<Harvest> harvestList = new ArrayList<>();
 
         if (type == Type.VEGETABLES) {
