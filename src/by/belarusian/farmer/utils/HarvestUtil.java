@@ -3,9 +3,13 @@ package by.belarusian.farmer.utils;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.model.newfunctioninterface.Filter;
 
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
 public class HarvestUtil {
 
 
@@ -23,7 +27,7 @@ public class HarvestUtil {
         return collection.stream().filter(plod -> plod.getWeight() < weight).collect(Collectors.toList());
     }
 
-    public static <T extends Harvest> List<T> takeOnlyType(Collection<T> collection, Class<? extends Harvest> clazz){
+    public static <T extends Harvest> List<T> takeOnlyType(Collection<T> collection, Class<? extends Harvest> clazz) {
         if (collection == null || collection.isEmpty()) {
             return new ArrayList<T>();
         }
@@ -70,5 +74,35 @@ public class HarvestUtil {
             }
         }
         return resultHarvest;
+    }
+
+    public static List<Harvest> filterByGreenHarvest(List<Harvest> harvests, Filter predicate) {
+        List<Harvest> list = new ArrayList<>();
+        for (Harvest harvest : harvests) {
+            if (predicate.test(harvest)) {
+                list.add(harvest);
+            }
+        }
+        return list;
+
+    }
+
+    public static <T> List<T> filterByAll(List<T> list, Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T t : list) {
+            if (predicate.test(t)) {
+                result.add(t);
+            }
+
+        }
+        return result;
+    }
+
+    public static <T, R> List<R> map(List<T> list, Function<T, R> f) {
+        List<R> result = new ArrayList<>();
+        for (T t : list) {
+            result.add(f.apply(t));
+        }
+        return result;
     }
 }
