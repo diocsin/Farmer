@@ -3,14 +3,18 @@ package by.belarusian.farmer;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.model.fruits.Apple;
 import by.belarusian.farmer.model.newfunctioninterface.Filter;
+import by.belarusian.farmer.system.Basket;
 import by.belarusian.farmer.utils.HarvestFactory;
 import by.belarusian.farmer.utils.HarvestUtil;
 
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -144,7 +148,17 @@ public class Main {
 
         List<Integer> collect = harvests.stream().map(harvest -> harvest.getWeight()).distinct().collect(Collectors.toList());
         System.out.println(collect);
-
+        
+        /*1.Переписать метод HarvestFactory.getAllBaskets c использованием java 8. (получится 2 строки)
+                ------Положить все плоды в корзины.------
+            2. Найти все в корзинах все плоды которые больше 50 грамм и Черного или Белого Цвета.
+            3. Вернуть строку со всеми именами плодов отсортированные в алфавитном порядке.
+            4. Узнать есть ли хоть однин огурец в корзинах.
+            5. Вывести сумму веса всех корзин.
+            6. Каков вес самого тяжелого плода в корзинах.
+            7. Найти самый легкий плод в корзинах.
+            8. Вывести все имена плодов большими буквами без повторений через точку с запятой.
+        */
 
     }
 
