@@ -15,7 +15,7 @@ public class Basket {
     }
 
     private int takeTotalWeight(List<Harvest> harvests) {
-        return harvests.stream().mapToInt(harvest -> harvest.getWeight()).reduce(0, (x, y) -> x + y);
+        return harvests.stream().mapToInt(Harvest::getWeight).sum();
     }
 
     public int getTotalWeight() {
