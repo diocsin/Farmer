@@ -3,8 +3,10 @@ package by.belarusian.farmer.utils;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.model.newfunctioninterfeise.Filter;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 public class HarvestUtil {
 
@@ -62,6 +64,17 @@ public class HarvestUtil {
         return list;
     }
 
+    public static<T> List<T> filterByGreen(List<T> harvests, Filter predicate) {
+        List<T> list = new ArrayList<>();
+        for (T harvest : harvests) {
+            if (predicate.test(harvest)) {
+                list.add(harvest);
+            }
+        }
+        return list;
+    }
+
+
     public static List<Harvest> biggerThen(List<Harvest> list, int weight) {
         List<Harvest> resultHarvest = new ArrayList<>();
         for (Harvest harvest : list) {
@@ -71,4 +84,13 @@ public class HarvestUtil {
         }
         return resultHarvest;
     }
+
+    public static <T, R> List<R> map(List<T> list, Function<T,R> f){
+        List<R> rList = new ArrayList<>();
+        for(T t: list){
+            rList.add(f.apply(t));
+        }
+        return rList;
+    }
+
 }
