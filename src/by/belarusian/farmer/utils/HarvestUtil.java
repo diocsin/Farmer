@@ -2,6 +2,7 @@ package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.functionInterface.HarvestPredicate;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.newfunctioninterface.Filter;
 
@@ -105,4 +106,15 @@ public class HarvestUtil {
         }
         return result;
     }
+
+    public static <T> List<T> filter(List<T> list, Predicate<T> predicate) {
+        List<T> result = new ArrayList<>();
+        for (T e : list) {
+            if (predicate.test(e)) {
+                result.add(e);
+            }
+        }
+        return result;
+    }
+
 }
