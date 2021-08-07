@@ -8,6 +8,7 @@ import by.belarusian.farmer.model.newfunctioninterface.Filter;
 import by.belarusian.farmer.system.Basket;
 import by.belarusian.farmer.utils.HarvestFactory;
 import by.belarusian.farmer.utils.HarvestUtil;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
@@ -142,12 +143,12 @@ public class Main {
         System.out.println(weightSum);*/
 
 
-        Map<Type, List<Harvest>> listMap = harvests.stream().collect(groupingBy((Harvest h) -> h.getType()));
-        System.out.println(listMap);
-
-
-        List<Integer> collect = harvests.stream().map(harvest -> harvest.getWeight()).distinct().collect(Collectors.toList());
-        System.out.println(collect);
+//        Map<Type, List<Harvest>> listMap = harvests.stream().collect(groupingBy((Harvest h) -> h.getType()));
+//        System.out.println(listMap);
+//
+//
+//        List<Integer> collect = harvests.stream().map(harvest -> harvest.getWeight()).distinct().collect(Collectors.toList());
+//        System.out.println(collect);
 
         /*1.Переписать метод HarvestFactory.getAllBaskets c использованием java 8. (получится 2 строки)
                 ------Положить все плоды в корзины.------
@@ -160,6 +161,68 @@ public class Main {
             8. Вывести все имена плодов большими буквами без повторений через точку с запятой.
         */
 
+        /* 1 */
+        List<Harvest> harvests1 = HarvestFactory.getHarvest(100_000);
+        List<Basket> allBaskets = HarvestFactory.getAllBaskets(harvests1);
+
+        /* 2 */
+        List<Harvest> harvests2 = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .filter(harvest -> (harvest.getWeight() > 50))
+                .filter(harvest -> harvest.getColor() == Color.BLACK || harvest.getColor() == Color.WHITE)
+                .collect(Collectors.toList());
+
+        //harvests2.forEach(System.out::println);
+
+        /* 3 */
+        Stream<String> sorted = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .map(harvest -> harvest.getRusName())
+                .sorted();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        sorted.forEach(str -> stringBuilder.append(String.format("%s ", str)));
+        System.out.println(stringBuilder.toString());
+
+
+        /* 4 */
+        Optional<Harvest> any = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .filter(harvest -> harvest.getRusName().equals("Огурец"))
+                .findAny();
+        if(any.isPresent()) System.out.println(any.get());
+
+        /* 5 */
+         int totalWeight = allBaskets.stream().mapToInt(basket -> basket.getTotalWeight()).sum();
+        System.out.println(totalWeight);
+
+        /* 6 */
+        OptionalInt max = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .mapToInt(harvest -> harvest.getWeight())
+                .max();
+        if(max.isPresent()){
+            Optional<Harvest> first = allBaskets.stream()
+                    .flatMap(basket -> basket.getHarvests().stream())
+                    .filter(harvest -> harvest.getWeight() == max.getAsInt())
+                    .findFirst();
+            System.out.println(first.get());
+        }
+
+        /* 7 */
+        Optional<Harvest> reduce = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .reduce((h1, h2) -> h1.getWeight() < h2.getWeight() ? h1 : h2);
+        if(reduce.isPresent()) System.out.println(reduce.get());
+        /* 8 */
+        List<String> collect2 = allBaskets.stream()
+                .flatMap(basket -> basket.getHarvests().stream())
+                .map(harvest -> harvest.getRusName())
+                .map(s -> s.toUpperCase() + ";")
+                .distinct()
+                .collect(Collectors.toList());
+
+        collect2.forEach(System.out::print);
     }
 
 

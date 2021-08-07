@@ -22,6 +22,10 @@ public class Basket {
         return totalWeight;
     }
 
+    public List<Harvest> getHarvests(){
+        return harvests;
+    }
+
     @Override
     public String toString() {
         return "Basket{" +

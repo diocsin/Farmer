@@ -10,10 +10,14 @@ import by.belarusian.farmer.model.berries.*;
 import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.vegetables.*;
 import by.belarusian.farmer.system.Basket;
+import org.w3c.dom.ls.LSOutput;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class HarvestFactory {
 
@@ -22,17 +26,8 @@ public class HarvestFactory {
 
 
     public static List<Basket> getAllBaskets(List<Harvest> harvests) {
-
-        List<Harvest> berry = HarvestUtil.takeOnlyType(harvests, Berry.class);
-        List<Harvest> fruit = HarvestUtil.takeOnlyType(harvests, Fruit.class);
-        List<Harvest> vegetable =  HarvestUtil.takeOnlyType(harvests, Vegetable.class);
-
-
-        List<Basket> basketList = new ArrayList<>();
-        basketList.add(new Basket(berry));
-        basketList.add(new Basket(fruit));
-        basketList.add(new Basket(vegetable));
-        return basketList;
+        Map<Type, List<Harvest>> collect = harvests.stream().collect(Collectors.groupingBy(Harvest::getType));
+        return collect.values().stream().map(list -> new Basket(list)).collect(Collectors.toList());
     }
 
 
