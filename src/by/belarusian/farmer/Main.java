@@ -4,20 +4,20 @@ import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.fruits.Apple;
-import by.belarusian.farmer.model.newfunctioninterface.Filter;
 import by.belarusian.farmer.system.Basket;
 import by.belarusian.farmer.utils.HarvestFactory;
-import by.belarusian.farmer.utils.HarvestUtil;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.groupingBy;
+import static java.util.stream.Collectors.*;
 
 
 public class Main {
@@ -160,7 +160,8 @@ public class Main {
             7. Найти самый легкий плод в корзинах.
             8. Вывести все имена плодов большими буквами без повторений через точку с запятой.
         */
-        doTasks();
+        //doTasks();
+        task2();
     }
 
     public static void doTasks() {
@@ -185,5 +186,110 @@ public class Main {
 
     }
 
+    private static void task2() {
+        Stream<String> streamTest = Stream.of("Java", "Spring", "PrimeFaces", "javaScript");
 
+        streamTest.map(String::toUpperCase).forEach(System.out::println);
+
+        Stream<Object> empty = Stream.empty();
+
+        String param = null;
+
+        Stream<String> stream = param == null ? Stream.empty() : Stream.of(param);
+
+        Stream<String> param1 = Stream.ofNullable(param);
+        param1.forEach(System.out::println);
+
+        readFile();
+    }
+
+    private static void readFile() {
+        long uniqueWords = 0;
+        try (Stream<String> lines = Files.lines(Path.of("test.txt"), Charset.defaultCharset())) {
+
+            uniqueWords = lines.flatMap(line -> Arrays.stream(line.split(" "))).distinct().count();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+        System.out.println(uniqueWords);
+        //generateStream();
+        // fibonschi();
+        //colectorsTest();
+        //group();
+        fabrics();
+    }
+
+    private static void generateStream() {
+        Stream.iterate(0, n -> n < 100, n -> n + 2).forEach(System.out::println);
+
+        final List<Apple> collect = Stream.generate(() -> new Apple(ThreadLocalRandom.current().nextInt(1, 1000), Color.RED))
+                .limit(10).collect(Collectors.toList());
+        System.out.println(collect);
+    }
+
+    private static void fibonschi() {
+        Stream.iterate(new int[]{0, 1}, t -> new int[]{t[1], t[0] + t[1]}).limit(20)
+                .map(t -> t[0])
+                .forEach(System.out::println);
+    }
+
+    private static void colectorsTest() {
+        List<Harvest> harvest = HarvestFactory.getHarvest(100);
+        List<Basket> allBaskets = HarvestFactory.getAllBaskets(harvest);
+        final Comparator<Harvest> harvestComparator = Comparator.comparingInt(Harvest::getWeight);
+        final Optional<Harvest> maxHarvest = allBaskets.stream()
+                .flatMap(b -> b.getHarvests().stream())
+                .collect(maxBy(harvestComparator));
+        System.out.println(maxHarvest.get());
+        final Integer totalWeight = allBaskets.stream()
+                .flatMap(b -> b.getHarvests().stream())
+                .collect(summingInt(Harvest::getWeight));
+
+        final IntSummaryStatistics statistics = allBaskets.stream()
+                .flatMap(b -> b.getHarvests().stream()).collect(summarizingInt(Harvest::getWeight));
+        System.out.println(statistics);
+
+
+        final String allHarvestUpperCase = allBaskets.stream().flatMap(b -> b.getHarvests().stream()).map(Harvest::getRusName)
+                .map(String::toUpperCase).distinct().collect(joining(", "));
+        System.out.println(allHarvestUpperCase);
+
+
+    }
+
+    public enum SizeLevel {SMALL, AVERAGE, LARGE, HUGE}
+
+    private static void group() {
+        List<Harvest> harvests = HarvestFactory.getHarvest(40);
+        Map<Type, List<Harvest>> listMap = harvests.stream()
+                .collect(groupingBy(Harvest::getType, filtering(harvest -> harvest.getWeight() > 500, toList())));
+        System.out.println(listMap);
+
+        final Map<Type, Map<SizeLevel, List<Harvest>>> sizeMap = harvests.stream().collect(
+                groupingBy(Harvest::getType,
+                        groupingBy(harvest -> {
+                            if (harvest.getWeight() <= 100) return SizeLevel.SMALL;
+                            else if (harvest.getWeight() <= 300) return SizeLevel.AVERAGE;
+                            else if (harvest.getWeight() <= 500) return SizeLevel.LARGE;
+                            else return SizeLevel.HUGE;
+
+                        })));
+        System.out.println(sizeMap);
+    }
+
+    private static void fabrics() {
+        final List<String> java = List.of("Java", "javaScript");
+
+        final Map<String, Integer> java1 = Map.of("Java", 1, "JavaScript", 2);
+
+        final Map<String, String> stringStringMap = Map.ofEntries(Map.entry("Java", "Хорошо"),
+                Map.entry("JavaScript", "Еще лучше"));
+
+        List<Harvest> harvests = HarvestFactory.getHarvest(40);
+        System.out.println(harvests.size());
+        final boolean java2 = harvests.removeIf(el -> el.getWeight()>30);
+        System.out.println(harvests.size());
+
+    }
 }
