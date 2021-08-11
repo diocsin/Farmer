@@ -19,16 +19,16 @@ public class Basket {
 
     }
 
+    public int getTotalWeight() {
+        return totalWeight;
+    }
+
     public List<Harvest> getHarvests() {
         return harvests;
     }
 
     public void setHarvests(List<Harvest> harvests) {
         this.harvests = harvests;
-    }
-
-    public int getTotalWeight() {
-        return totalWeight;
     }
 
     @Override
