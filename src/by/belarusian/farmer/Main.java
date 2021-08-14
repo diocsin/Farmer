@@ -6,6 +6,7 @@ import by.belarusian.farmer.model.Basket;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.fruits.Apple;
 import by.belarusian.farmer.utils.HarvestFactory;
+import by.belarusian.farmer.utils.HarvestUtil;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
@@ -289,6 +290,8 @@ public class Main {
         System.out.println(harvests.size());
         harvests.removeIf(el -> el.getWeight() > 30);
         System.out.println(harvests.size());
+
+        harvests.forEach(System.out::println);
 
     }
 }
