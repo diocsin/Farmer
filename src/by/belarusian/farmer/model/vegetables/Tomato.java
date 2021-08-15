@@ -5,6 +5,7 @@ import by.belarusian.farmer.model.Vegetable;
 
 public class Tomato extends Vegetable {
 
+    public static final String rusName = "Помидор";
 
     public Tomato(int weight, Color color) {
         super(weight, color);
@@ -12,6 +13,6 @@ public class Tomato extends Vegetable {
 
     @Override
     public String getRusName() {
-        return "Помидор";
+        return rusName;
     }
 }

@@ -3,19 +3,11 @@ package by.belarusian.farmer;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.fruits.Apple;
-import by.belarusian.farmer.model.newfunctioninterface.Filter;
-import by.belarusian.farmer.system.Basket;
+import by.belarusian.farmer.model.Basket;
 import by.belarusian.farmer.utils.HarvestFactory;
-import by.belarusian.farmer.utils.HarvestUtil;
 
 import java.util.*;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -182,6 +174,14 @@ public class Main {
         System.out.println("Самый легкий плод " + minHarvest.get());
         allBaskets.stream().flatMap(b -> b.getHarvests().stream()).map(Harvest::getRusName)
                 .map(String::toUpperCase).distinct().forEach(s -> System.out.printf("%s; ", s));
+        IntSummaryStatistics collect = allBaskets.stream().flatMap(b -> b.getHarvests().stream()).collect(Collectors.summarizingInt(Harvest::getWeight));
+        String collect1 = allBaskets.stream().flatMap(b -> b.getHarvests().stream()).map(Harvest::getRusName)
+                .map(String::toUpperCase).distinct().collect(Collectors.joining("; "));
+        System.out.println(collect1);
+
+        List<String> fr = Arrays.asList("as", "ad", "da");
+        fr.add("sd");
+
 
     }
 

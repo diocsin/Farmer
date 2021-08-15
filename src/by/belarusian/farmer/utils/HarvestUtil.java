@@ -2,11 +2,11 @@ package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
-import by.belarusian.farmer.functionInterface.HarvestPredicate;
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.newfunctioninterface.Filter;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -77,16 +77,6 @@ public class HarvestUtil {
         return resultHarvest;
     }
 
-    public static List<Harvest> filterByGreenHarvest(List<Harvest> harvests, Filter predicate) {
-        List<Harvest> list = new ArrayList<>();
-        for (Harvest harvest : harvests) {
-            if (predicate.test(harvest)) {
-                list.add(harvest);
-            }
-        }
-        return list;
-
-    }
 
     public static <T> List<T> filterByAll(List<T> list, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();

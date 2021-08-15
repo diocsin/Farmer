@@ -5,12 +5,14 @@ import by.belarusian.farmer.model.Vegetable;
 
 public class Potato extends Vegetable {
 
+    public static final String rusName = "Картофель";
+
     public Potato(int weight, Color color) {
         super(weight, color);
     }
 
     @Override
     public String getRusName() {
-        return "Картофель";
+        return rusName;
     }
 }

@@ -1,13 +1,11 @@
 package by.belarusian.farmer.model.berries;
 
 import by.belarusian.farmer.enums.Color;
-import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
-
-import java.util.Objects;
 
 public class Cranberry extends Berry {
 
+    public static final String rusName = "Клюква";
 
     public Cranberry(int weight, Color color) {
         super(weight, color);
@@ -15,6 +13,6 @@ public class Cranberry extends Berry {
 
     @Override
     public String getRusName() {
-        return "Клюква";
+        return rusName;
     }
 }

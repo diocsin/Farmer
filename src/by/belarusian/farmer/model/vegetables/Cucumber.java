@@ -6,6 +6,7 @@ import by.belarusian.farmer.model.Vegetable;
 
 public class Cucumber extends Vegetable {
 
+    public static final String rusName = "Огурец";
 
     public Cucumber(int weight, Color color) {
         super(weight, color);
@@ -13,6 +14,6 @@ public class Cucumber extends Vegetable {
 
     @Override
     public String getRusName() {
-        return "Огурец";
+        return rusName;
     }
 }

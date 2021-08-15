@@ -1,4 +1,4 @@
-package by.belarusian.farmer.system;
+package by.belarusian.farmer.model;
 
 import by.belarusian.farmer.model.Harvest;
 

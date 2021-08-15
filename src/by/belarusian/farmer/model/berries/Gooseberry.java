@@ -1,12 +1,11 @@
 package by.belarusian.farmer.model.berries;
 
 import by.belarusian.farmer.enums.Color;
-import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Berry;
 
-import java.util.Objects;
-
 public class Gooseberry extends Berry {
+
+    public static final String rusName = "Крыжовник";
 
     public Gooseberry(int weight, Color color) {
         super(weight, color);
@@ -14,6 +13,6 @@ public class Gooseberry extends Berry {
 
         @Override
         public String getRusName() {
-            return "Крыжовник";
+            return rusName;
         }
     }

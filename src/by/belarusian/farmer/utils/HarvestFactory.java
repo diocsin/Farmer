@@ -2,300 +2,118 @@ package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
-import by.belarusian.farmer.model.Berry;
-import by.belarusian.farmer.model.Fruit;
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.Vegetable;
 import by.belarusian.farmer.model.berries.*;
 import by.belarusian.farmer.model.fruits.*;
 import by.belarusian.farmer.model.vegetables.*;
-import by.belarusian.farmer.system.Basket;
+import by.belarusian.farmer.model.Basket;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.groupingBy;
 
 public class HarvestFactory {
 
-    private static Color[] colors = Color.values();
-    private static Random rand = new Random();
+    private final static Map<String, BiFunction<Integer, Color, Harvest>> harvestMap = new HashMap<>();
+    private final static Map<String, BiFunction<Integer, Color, Harvest>> fruitsMap = new HashMap<>();
+    private final static Map<String, BiFunction<Integer, Color, Harvest>> berriesMap = new HashMap<>();
+    private final static Map<String, BiFunction<Integer, Color, Harvest>> vegetablesMap = new HashMap<>();
+    private final static Map<Type, Map<String, BiFunction<Integer, Color, Harvest>>> typeMap = new HashMap<>();
+    private final static Color[] colors = Color.values();
+    private final static int[] bound = new int[]{1, 1000};
 
+    static {
+        fruitsMap.put(Apple.rusName, Apple::new);
+        fruitsMap.put(Orange.rusName, Orange::new);
+        fruitsMap.put(Apricot.rusName, Apricot::new);
+        fruitsMap.put(Banana.rusName, Banana::new);
+        fruitsMap.put(Garnet.rusName, Garnet::new);
+        fruitsMap.put(Guava.rusName, Guava::new);
+        fruitsMap.put(Lemon.rusName, Lemon::new);
+        fruitsMap.put(Plum.rusName, Plum::new);
+    }
+
+    static {
+        berriesMap.put(Blueberry.rusName, Blueberry::new);
+        berriesMap.put(Cherry.rusName, Cherry::new);
+        berriesMap.put(Cranberry.rusName, Cranberry::new);
+        berriesMap.put(Currant.rusName, Currant::new);
+        berriesMap.put(Gooseberry.rusName, Gooseberry::new);
+        berriesMap.put(Grape.rusName, Grape::new);
+        berriesMap.put(Strawberry.rusName, Strawberry::new);
+    }
+
+    static {
+        vegetablesMap.put(Beet.rusName, Beet::new);
+        vegetablesMap.put(Carrot.rusName, Carrot::new);
+        vegetablesMap.put(Cucumber.rusName, Cucumber::new);
+        vegetablesMap.put(Pepper.rusName, Pepper::new);
+        vegetablesMap.put(Potato.rusName, Potato::new);
+        vegetablesMap.put(Radish.rusName, Radish::new);
+        vegetablesMap.put(Tomato.rusName, Tomato::new);
+    }
+
+    static {
+        harvestMap.putAll(fruitsMap);
+        harvestMap.putAll(berriesMap);
+        harvestMap.putAll(vegetablesMap);
+        typeMap.put(Type.FRUITS, fruitsMap);
+        typeMap.put(Type.BERRIES, berriesMap);
+        typeMap.put(Type.VEGETABLES, vegetablesMap);
+    }
+
+    private HarvestFactory() {
+    }
 
     public static List<Basket> getAllBaskets(List<Harvest> harvests) {
         Map<Type, List<Harvest>> collect = harvests.stream().collect(groupingBy(Harvest::getType));
         return collect.values().stream().map(Basket::new).collect(Collectors.toList());
     }
 
+    public static List<Harvest> generate(final String name, final int amount) {
+        final List<Harvest> harvests = new ArrayList<>();
+        final BiFunction<Integer, Color, Harvest> biFunction = harvestMap.get(name);
+        if (biFunction != null) {
+            for (int i = 0; i < amount; i++) {
+                harvests.add(generateHarvest(biFunction));
+            }
+        } else {
+            throw new IllegalArgumentException("No such harvest " + name);
+        }
+        return harvests;
+    }
 
-    public static ArrayList<Harvest> generate(Class cl, int count) {
+    private static Harvest generateHarvest(BiFunction<Integer, Color, Harvest> function) {
+        return function.apply(ThreadLocalRandom.current().nextInt(bound[0], bound[1]), colors[ThreadLocalRandom.current().nextInt(colors.length)]);
+    }
 
-        ArrayList<Harvest> harvests = new ArrayList<>();
 
-        if (cl.isAssignableFrom(Apple.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Apple(rand.nextInt(500), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Apricot.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Grape.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Grape(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Blueberry.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Blueberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Cherry.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Cherry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Cranberry.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Cranberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Currant.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Currant(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Strawberry.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Strawberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Gooseberry.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Gooseberry(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Banana.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Banana(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Apricot.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Apricot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Garnet.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Garnet(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Guava.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Guava(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Lemon.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Lemon(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Orange.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Orange(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Plum.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Plum(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Beet.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Beet(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Carrot.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Carrot(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Cucumber.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Cucumber(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Pepper.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Pepper(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Potato.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Potato(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-
-        if (cl.isAssignableFrom(Radish.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Radish(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
-            }
-        }
-        if (cl.isAssignableFrom(Tomato.class)) {
-            for (int i = 0; i < count; i++) {
-                harvests.add(new Tomato(rand.nextInt(20), Color.values()[rand.nextInt(11)]));
+    @SuppressWarnings("unchecked")
+    public static List<Harvest> generateHarvestByType(final Type type, final int amount) {
+        final List<Harvest> harvests = new ArrayList<>();
+        final Map<String, BiFunction<Integer, Color, Harvest>> harvestMap = typeMap.get(type);
+        if (harvestMap != null) {
+            final Set<Map.Entry<String, BiFunction<Integer, Color, Harvest>>> entries = harvestMap.entrySet();
+            final Map.Entry<String, BiFunction<Integer, Color, Harvest>>[] mapArr = entries.toArray(new Map.Entry[0]);
+            for (int i = 0; i < amount; i++) {
+                final BiFunction<Integer, Color, Harvest> biFunction = mapArr[ThreadLocalRandom.current().nextInt(mapArr.length)].getValue();
+                harvests.add(generateHarvest(biFunction));
             }
         }
         return harvests;
     }
 
-    public static List<Harvest> generateHarvestType(int amount, Type type) {
-        List<Harvest> harvestList = new ArrayList<>();
-
-        if (type == Type.VEGETABLES) {
-            for (int i = 0; i < amount; i++) {
-                harvestList.add(getVegetable());
-            }
-        }
-
-        if (type == Type.FRUITS) {
-            for (int i = 0; i < amount; i++) {
-                harvestList.add(getFruit());
-            }
-        }
-
-        if (type == Type.BERRIES) {
-            for (int i = 0; i < amount; i++) {
-                harvestList.add(getBerry());
-            }
-        }
-
-        return harvestList;
-    }
-
-    public static List<Harvest> getHarvest(int number) {
-
-        List<Harvest> harvestList = new ArrayList<>();
-
-
+    @SuppressWarnings("unchecked")
+    public static List<Harvest> getHarvest(final int number) {
+        final List<Harvest> harvestList = new ArrayList<>();
+        final Map.Entry<String, BiFunction<Integer, Color, Harvest>>[] harvest = harvestMap.entrySet().toArray(new Map.Entry[0]);
         for (int i = 0; i < number; i++) {
-            switch (rand.nextInt(3)) {
-
-                case 0:
-                    harvestList.add(getBerry());
-                    break;
-
-                case 1:
-                    harvestList.add(getFruit());
-                    break;
-
-                case 2:
-                    harvestList.add(getVegetable());
-                    break;
-            }
+            harvestList.add(generateHarvest(harvest[ThreadLocalRandom.current().nextInt(harvest.length)].getValue()));
         }
-
-
         return harvestList;
     }
-
-    private static Berry getBerry() {
-
-        switch (rand.nextInt(6)) {
-
-            case 0:
-                return new Blueberry(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
-
-            case 1:
-                return new Cherry(rand.nextInt(20) + 1, colors[rand.nextInt(10)]);
-
-            case 2:
-                return new Cranberry(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
-
-            case 3:
-                return new Currant(rand.nextInt(10) + 1, colors[rand.nextInt(10)]);
-
-            case 4:
-                return new Gooseberry(rand.nextInt(20) + 1, colors[rand.nextInt(10)]);
-
-            case 5:
-                return new Grape(rand.nextInt(30) + 1, colors[rand.nextInt(10)]);
-
-            default:
-                return new Strawberry(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
-        }
-    }
-
-    private static Fruit getFruit() {
-
-        switch (rand.nextInt(7)) {
-
-            case 0:
-                return new Apple(rand.nextInt(500) + 1, colors[rand.nextInt(10)]);
-
-            case 1:
-                return new Apricot(rand.nextInt(400) + 1, colors[rand.nextInt(10)]);
-
-            case 2:
-                return new Banana(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
-
-            case 3:
-                return new Garnet(rand.nextInt(150) + 1, colors[rand.nextInt(10)]);
-
-            case 4:
-                return new Guava(rand.nextInt(400) + 1, colors[rand.nextInt(10)]);
-
-            case 5:
-                return new Lemon(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
-
-            case 6:
-                return new Orange(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
-
-            default:
-                return new Plum(rand.nextInt(70) + 1, colors[rand.nextInt(10)]);
-        }
-
-    }
-
-    private static Vegetable getVegetable() {
-
-        switch (rand.nextInt(6)) {
-
-            case 0:
-                return new Beet(rand.nextInt(200) + 1, colors[rand.nextInt(10)]);
-
-            case 1:
-                return new Carrot(rand.nextInt(200) + 1, colors[rand.nextInt(10)]);
-
-            case 2:
-                return new Cucumber(rand.nextInt(500) + 1, colors[rand.nextInt(10)]);
-
-            case 3:
-                return new Pepper(rand.nextInt(100) + 1, colors[rand.nextInt(10)]);
-
-            case 4:
-                return new Potato(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
-
-            case 5:
-                return new Radish(rand.nextInt(50) + 1, colors[rand.nextInt(10)]);
-
-            default:
-                return new Tomato(rand.nextInt(300) + 1, colors[rand.nextInt(10)]);
-
-        }
-
-    }
-
 
 }
