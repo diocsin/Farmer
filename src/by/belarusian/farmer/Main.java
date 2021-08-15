@@ -2,13 +2,12 @@ package by.belarusian.farmer;
 
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.model.Basket;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.fruits.Apple;
-import by.belarusian.farmer.system.Basket;
 import by.belarusian.farmer.utils.HarvestFactory;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -288,7 +287,7 @@ public class Main {
 
         List<Harvest> harvests = HarvestFactory.getHarvest(40);
         System.out.println(harvests.size());
-        final boolean java2 = harvests.removeIf(el -> el.getWeight()>30);
+        final boolean java2 = harvests.removeIf(el -> el.getWeight() > 30);
         System.out.println(harvests.size());
 
     }
