@@ -94,7 +94,7 @@ public class Main {
         });
         System.out.println(nameResult);*/
 
-        List<Harvest> harvests = HarvestFactory.getHarvest(50);
+        List<Harvest> harvests = HarvestFactory.of(50);
         /*List<Harvest> color = HarvestUtil.filterByAll(harvests, (Harvest h) -> Color.RED.equals(h.getColor()));
         System.out.println(color);*/
 
@@ -164,8 +164,8 @@ public class Main {
     }
 
     public static void doTasks() {
-        List<Harvest> harvest = HarvestFactory.getHarvest(100);
-        List<Basket> allBaskets = HarvestFactory.getAllBaskets(harvest);
+        List<Harvest> harvest = HarvestFactory.of(100);
+        List<Basket> allBaskets =Basket.of(harvest);
         allBaskets.stream().flatMap(b -> b.getHarvests().stream())
                 .filter(h -> h.getWeight() > 50)
                 .filter(h -> h.getColor() == Color.BLACK || h.getColor() == Color.WHITE).forEach(System.out::println);
@@ -234,8 +234,8 @@ public class Main {
     }
 
     private static void colectorsTest() {
-        List<Harvest> harvest = HarvestFactory.getHarvest(100);
-        List<Basket> allBaskets = HarvestFactory.getAllBaskets(harvest);
+        List<Harvest> harvest = HarvestFactory.of(100);
+        List<Basket> allBaskets = Basket.of(harvest);
         final Comparator<Harvest> harvestComparator = Comparator.comparingInt(Harvest::getWeight);
         final Optional<Harvest> maxHarvest = allBaskets.stream()
                 .flatMap(b -> b.getHarvests().stream())
@@ -260,7 +260,7 @@ public class Main {
     public enum SizeLevel {SMALL, AVERAGE, LARGE, HUGE}
 
     private static void group() {
-        List<Harvest> harvests = HarvestFactory.getHarvest(40);
+        List<Harvest> harvests = HarvestFactory.of(40);
         Map<Type, List<Harvest>> listMap = harvests.stream()
                 .collect(groupingBy(Harvest::getType, filtering(harvest -> harvest.getWeight() > 500, toList())));
         System.out.println(listMap);
@@ -285,9 +285,9 @@ public class Main {
         final Map<String, String> stringStringMap = Map.ofEntries(Map.entry("Java", "Хорошо"),
                 Map.entry("JavaScript", "Еще лучше"));
 
-        List<Harvest> harvests = HarvestFactory.getHarvest(40);
+        List<Harvest> harvests = HarvestFactory.of(40);
         System.out.println(harvests.size());
-        final boolean java2 = harvests.removeIf(el -> el.getWeight() > 30);
+        harvests.removeIf(el -> el.getWeight() > 30);
         System.out.println(harvests.size());
 
     }

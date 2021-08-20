@@ -68,12 +68,7 @@ public class HarvestFactory {
     private HarvestFactory() {
     }
 
-    public static List<Basket> getAllBaskets(List<Harvest> harvests) {
-        Map<Type, List<Harvest>> collect = harvests.stream().collect(groupingBy(Harvest::getType));
-        return collect.values().stream().map(Basket::new).collect(Collectors.toList());
-    }
-
-    public static List<Harvest> generate(final String name, final int amount) {
+    public static List<Harvest> of(final String name, final int amount) {
         final List<Harvest> harvests = new ArrayList<>();
         final BiFunction<Integer, Color, Harvest> biFunction = harvestMap.get(name);
         if (biFunction != null) {
@@ -92,7 +87,7 @@ public class HarvestFactory {
 
 
     @SuppressWarnings("unchecked")
-    public static List<Harvest> generateHarvestByType(final Type type, final int amount) {
+    public static List<Harvest> of(final Type type, final int amount) {
         final List<Harvest> harvests = new ArrayList<>();
         final Map<String, BiFunction<Integer, Color, Harvest>> harvestMap = typeMap.get(type);
         if (harvestMap != null) {
@@ -107,7 +102,7 @@ public class HarvestFactory {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<Harvest> getHarvest(final int number) {
+    public static List<Harvest> of(final int number) {
         final List<Harvest> harvestList = new ArrayList<>();
         final Map.Entry<String, BiFunction<Integer, Color, Harvest>>[] harvest = harvestMap.entrySet().toArray(new Map.Entry[0]);
         for (int i = 0; i < number; i++) {

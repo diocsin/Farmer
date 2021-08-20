@@ -1,34 +1,33 @@
 package by.belarusian.farmer.utils;
 
 import by.belarusian.farmer.model.Harvest;
-import by.belarusian.farmer.model.fruits.Apple;
 
-import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Date;
 import java.util.List;
 
-public class PrintUtil {
-    public static void print(List<Harvest> list) {
-        for (Harvest i : list) {
-            String string = i.toString();
-            System.out.println(string);
+import static java.util.stream.Collectors.joining;
 
-            try (FileWriter writer = new FileWriter("src/by/belarusian/farmer/log/log.txt", true)) {
-                writer.write(string);
-                writer.append('\n');
-                writer.flush();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        try (FileWriter writer = new FileWriter("src/by/belarusian/farmer/log/log.txt", true)) {
-            Date now = new Date();
-            writer.write(now.toString());
-            writer.append('\n');
-            writer.flush();
+public class PrintUtil {
+    public static final String PATH = "log.txt";
+
+    public static void print(List<Harvest> list) {
+        String harvestsPrint = list.stream().map(Harvest::toString).collect(joining("\n"));
+        System.out.println(harvestsPrint);
+        StringBuilder harvestFormating = new StringBuilder();
+        harvestFormating
+                .append(new Date().toString())
+                .append(System.lineSeparator())
+                .append(harvestsPrint);
+        Path path = Paths.get(PATH);
+        try {
+            Files.writeString(path, harvestFormating.toString(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Ошибка записи в файл " + e);
         }
     }
 }

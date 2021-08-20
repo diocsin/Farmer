@@ -1,8 +1,12 @@
 package by.belarusian.farmer.model;
 
-import by.belarusian.farmer.model.Harvest;
+import by.belarusian.farmer.enums.Type;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class Basket {
 
@@ -29,6 +33,11 @@ public class Basket {
 
     public void setHarvests(List<Harvest> harvests) {
         this.harvests = harvests;
+    }
+
+    public static List<Basket> of(List<Harvest> harvests) {
+        Map<Type, List<Harvest>> collect = harvests.stream().collect(groupingBy(Harvest::getType));
+        return collect.values().stream().map(Basket::new).collect(Collectors.toList());
     }
 
     @Override
