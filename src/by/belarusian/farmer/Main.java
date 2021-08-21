@@ -3,6 +3,8 @@ package by.belarusian.farmer;
 import by.belarusian.farmer.enums.Color;
 import by.belarusian.farmer.enums.Type;
 import by.belarusian.farmer.model.Basket;
+import by.belarusian.farmer.model.Bicycle;
+import by.belarusian.farmer.model.Farmer;
 import by.belarusian.farmer.model.Harvest;
 import by.belarusian.farmer.model.fruits.Apple;
 import by.belarusian.farmer.utils.HarvestFactory;
@@ -12,6 +14,7 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.*;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
@@ -166,7 +169,7 @@ public class Main {
 
     public static void doTasks() {
         List<Harvest> harvest = HarvestFactory.of(100);
-        List<Basket> allBaskets =Basket.of(harvest);
+        List<Basket> allBaskets = Basket.of(harvest);
         allBaskets.stream().flatMap(b -> b.getHarvests().stream())
                 .filter(h -> h.getWeight() > 50)
                 .filter(h -> h.getColor() == Color.BLACK || h.getColor() == Color.WHITE).forEach(System.out::println);
@@ -217,7 +220,7 @@ public class Main {
         // fibonschi();
         //colectorsTest();
         //group();
-        fabrics();
+        // fabrics();
     }
 
     private static void generateStream() {
@@ -244,6 +247,7 @@ public class Main {
         System.out.println(maxHarvest.get());
         final Integer totalWeight = allBaskets.stream()
                 .flatMap(b -> b.getHarvests().stream())
+                .peek(x -> System.out.println("from flatMap " + x))
                 .collect(summingInt(Harvest::getWeight));
 
         final IntSummaryStatistics statistics = allBaskets.stream()
@@ -292,6 +296,69 @@ public class Main {
         System.out.println(harvests.size());
 
         harvests.forEach(System.out::println);
+    }
 
+    public static void optionalTest() {
+        final Farmer farmer = new Farmer();
+        final Farmer farmer2 = new Farmer();
+        final Bicycle bicycle = new Bicycle();
+        final Bicycle bicycle2 = new Bicycle();
+        final List<Harvest> harvests = HarvestFactory.of(200);
+        final List<Harvest> harvests2 = HarvestFactory.of(200);
+        final List<Basket> baskets = Basket.of(harvests);
+        final List<Basket> baskets2 = Basket.of(harvests2);
+        bicycle.setBasket(Optional.ofNullable(baskets.get(0)));
+        bicycle2.setBasket(Optional.ofNullable(baskets2.get(0)));
+        farmer.setBicycle(Optional.ofNullable(bicycle));
+        farmer2.setBicycle(Optional.ofNullable(bicycle2));
+        final Optional<Farmer> farmerOptional = Optional.of(farmer);
+        System.out.printf("Вес %s", getWeightBasketsOnBicycle(farmerOptional));
+        System.out.println();
+        System.out.println(getBasketsWeight(List.of(farmer, farmer2)));
+        System.out.println(getWeight(farmerOptional, 100));
+    }
+
+    public static int getWeightBasketsOnBicycle(final Optional<Farmer> farmer) {
+        return farmer.flatMap(Farmer::getBicycle)
+                .flatMap(Bicycle::getBasket)
+                .map(Basket::getTotalWeight).orElse(-1);
+    }
+
+    public static Set<Integer> getBasketsWeight(final List<Farmer> farmers) {
+        final Set<Optional<Integer>> collect = farmers.stream()
+                .map(Farmer::getBicycle)
+                .map(b -> b.flatMap(Bicycle::getBasket))
+                .map(bas -> bas.map(Basket::getTotalWeight))
+                .collect(toSet());
+
+        return collect.stream().filter(Optional::isPresent).map(Optional::get).collect(Collectors.toSet());
+
+    }
+
+    public static Optional<Basket> nullSafeFindSmallerBasket(Optional<Farmer> farmer, Optional<Bicycle> bicycle) {
+        return farmer.flatMap(f -> bicycle.flatMap(b -> findSmaller(f, b)));
+    }
+
+    private static Optional<Basket> findSmaller(Farmer farmer, Bicycle bicycle) {
+        return bicycle.getBasket();
+    }
+
+    private static Integer getWeight(Optional<Farmer> farmer, int weight) {
+        teste();
+        return farmer.flatMap(Farmer::getBicycle)
+                .flatMap(Bicycle::getBasket)
+                .map(Basket::getTotalWeight).filter(w -> w > weight)
+                .orElseThrow(NullPointerException::new);
+
+    }
+
+    private static void teste(){
+        LocalTime l = LocalTime.of(21,17,5);
+        LocalDate.parse("2017-09-21");
+        System.out.println(l);
+        System.out.println(l);
+        final Period between = Period.between(LocalDate.of(2021, 8, 18), LocalDate.of(2021, 8, 20));
+        System.out.println(between.getDays());
+        LocalDateTime.now();
     }
 }

@@ -81,11 +81,6 @@ public class HarvestFactory {
         return harvests;
     }
 
-    private static Harvest generateHarvest(BiFunction<Integer, Color, Harvest> function) {
-        return function.apply(ThreadLocalRandom.current().nextInt(bound[0], bound[1]), colors[ThreadLocalRandom.current().nextInt(colors.length)]);
-    }
-
-
     @SuppressWarnings("unchecked")
     public static List<Harvest> of(final Type type, final int amount) {
         final List<Harvest> harvests = new ArrayList<>();
@@ -102,13 +97,17 @@ public class HarvestFactory {
     }
 
     @SuppressWarnings("unchecked")
-    public static List<Harvest> of(final int number) {
+    public static List<Harvest> of(final int amount) {
         final List<Harvest> harvestList = new ArrayList<>();
         final Map.Entry<String, BiFunction<Integer, Color, Harvest>>[] harvest = harvestMap.entrySet().toArray(new Map.Entry[0]);
-        for (int i = 0; i < number; i++) {
+        for (int i = 0; i < amount; i++) {
             harvestList.add(generateHarvest(harvest[ThreadLocalRandom.current().nextInt(harvest.length)].getValue()));
         }
         return harvestList;
+    }
+
+    private static Harvest generateHarvest(BiFunction<Integer, Color, Harvest> function) {
+        return function.apply(ThreadLocalRandom.current().nextInt(bound[0], bound[1]), colors[ThreadLocalRandom.current().nextInt(colors.length)]);
     }
 
 }

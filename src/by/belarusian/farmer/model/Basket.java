@@ -1,6 +1,7 @@
 package by.belarusian.farmer.model;
 
 import by.belarusian.farmer.enums.Type;
+import by.belarusian.farmer.model.Harvest;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,11 @@ public class Basket {
         this.totalWeight = takeTotalWeight(harvests);
     }
 
+    public static List<Basket> of(List<Harvest> harvests) {
+        Map<Type, List<Harvest>> collect = harvests.stream().collect(groupingBy(Harvest::getType));
+        return collect.values().stream().map(Basket::new).collect(Collectors.toList());
+    }
+
     private int takeTotalWeight(List<Harvest> harvests) {
         return harvests.stream().mapToInt(Harvest::getWeight).sum();
 
@@ -33,11 +39,6 @@ public class Basket {
 
     public void setHarvests(List<Harvest> harvests) {
         this.harvests = harvests;
-    }
-
-    public static List<Basket> of(List<Harvest> harvests) {
-        Map<Type, List<Harvest>> collect = harvests.stream().collect(groupingBy(Harvest::getType));
-        return collect.values().stream().map(Basket::new).collect(Collectors.toList());
     }
 
     @Override
